@@ -112,7 +112,7 @@ label.brand-checkbox > input:disabled + span, label.brand-radio > input:disabled
 
 .decorate-module-list-group { padding-left: 10px; padding-right: 2px; padding-bottom: 10px; }
 .decorate-module-list-group .hml-li { float: left; width: 50%; padding-top: 8px; padding-right: 8px;}
-.decorate-module-list-group .hml-item { border-radius:8px; overflow: hidden; /*padding: 20px 0;*/ display: table; width: 100%; vertical-align: middle; height: 84px; /*margin-right: 10px;*/ /*margin-top: 10px;*/ text-align: center; color: #333; background-color: #fff; -webkit-background-size: 100% 100%; background-size: 100% 100%; }
+.decorate-module-list-group .hml-item { border-radius:8px;  /*padding: 20px 0;*/ display: table; width: 100%; vertical-align: middle; height: 84px; /*margin-right: 10px;*/ /*margin-top: 10px;*/ text-align: center; color: #333; background-color: #fff; -webkit-background-size: 100% 100%; background-size: 100% 100%; }
 .decorate-module-list-group .hml-table-cell { display: table-cell; vertical-align: middle; 
     display: flex;
     justify-content: center;
