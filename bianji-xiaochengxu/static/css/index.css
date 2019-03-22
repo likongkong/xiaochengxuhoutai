@@ -32,6 +32,16 @@ label.brand-radio > input:checked + span:before { content: "\f111"; }
 label.brand-checkbox > input:disabled + span, label.brand-radio > input:disabled + span { color: #73879C; cursor: not-allowed; }
 
 .p20 {padding: 20px;}
+
+.mx-upload-group { position: relative; width: 80px; height: 80px; cursor: pointer; }
+.mx-upload-group.w-auto { display: inline-block; width: auto; }
+.mx-upload-group.w-auto .upload-img { width: auto; min-width: 80px; max-width: 100%; }
+.mx-upload-group .upload-file { position: absolute; z-index: 5; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%; cursor: pointer; opacity: 0; }
+.mx-upload-group .upload-img { position: relative; z-index: 2; height: 100%; width: 100%; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+.mx-upload-group .upload-del { position: absolute; z-index: 6; bottom: 0; left: 0; right: 0; height: 30px; line-height: 30px; background: #000; background: rgba(0, 0, 0, 0.6); text-align: center; cursor: pointer; font-size: 14px; color: #fff; border-radius: 0 0 5px 5px; }
+.mx-upload-group .upload-del.z-sm { z-index: 4; }
+
+
 .decorate-content { position: relative; z-index: 2; padding-top: 95px; }
 
 .decorate-aside-group { position: fixed; left: 0; top: 95px; bottom: 0; width: 300px; background: #fff; -webkit-box-shadow: 0 0 5px #999; box-shadow: 0 0 5px #999; overflow: auto; }
@@ -91,6 +101,9 @@ label.brand-checkbox > input:disabled + span, label.brand-radio > input:disabled
 .decorate-form-group.l-w50 .dfg-control-box { margin-left: 50px; }
 .decorate-form-group.l-w60 .dfg-label { width: 60px; }
 .decorate-form-group.l-w60 .dfg-control-box { margin-left: 60px; }
+
+.decorate-form-row {background: #fff;}
+.decorate-form-row .decorate-edit-group{background: #fff;padding: 10px;margin: 0;}
 
 .dfg-label { float: left; font-size: 12px; color: #888; font-weight: 500; width: 80px; padding-right: 5px; line-height: 34px; text-align: right; margin-bottom: 0; }
 
