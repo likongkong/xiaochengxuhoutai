@@ -79,26 +79,27 @@ const datas =  [
         ]
       },
       {
-        type: "couponCard",
+        type: "freeCouponCard",
         style: "across",
+        couponTabbarKey: 0,
         Items: [
           {
             couponAddStyleType: 1,
-            couponPayType:1,
+            // couponPayType:1,
             markSwitchVal:false,
             markVal:1,
-            title: "优惠卡券",
+            title: "免费卡券1",
             list: [
               {
                 couponStyleType: 1,
-                couponPayType:1,
+                // couponPayType:1,
                 title: '全品类1',
                 id:'4840',
                 type: "礼品兑换券",
                 description: "本优惠券不可兑换现金，不可找零。",
                 url:
                   "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
-                freeCoupons:[
+                coupons:[
                   {
                       "id": 4839,
                       "title": "全品类"
@@ -106,85 +107,62 @@ const datas =  [
                   {
                       "id": 4840,
                       "title": "全品类1"
-                  }
-                ],
-                chargeCoupons: [
-                  {
-                      "id": 4420,
-                      "title": "1.11元代金券"
-                  },
-                  {
-                      "id": 4430,
-                      "title": "1.22元代金券"
                   }
                 ]
               }
             ]
-          },
+          }
+        ]
+      },
+      {
+        type: "chargeCouponsCard",
+        style: "across",
+        couponTabbarKey: 0,
+        Items: [
           {
             couponAddStyleType: 1,
-            couponPayType:2,
+            // couponPayType:1,
             markSwitchVal:false,
             markVal:1,
-            title: "优惠卡券",
+            title: "付费卡券1",
             list: [
               {
                 couponStyleType: 1,
-                couponPayType:2,
-                title: '1.22元代金券',
-                id:'4430',
-                type: "礼品兑换券",
-                description: "本优惠券不可兑换现金，不可找零。",
-                url:
-                  "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
-                freeCoupons:[
-                  {
-                      "id": 4839,
-                      "title": "全品类"
-                  },
-                  {
-                      "id": 4840,
-                      "title": "全品类1"
-                  }
-                ],
-                chargeCoupons: [
-                  {
-                      "id": 4420,
-                      "title": "1.11元代金券"
-                  },
-                  {
-                      "id": 4430,
-                      "title": "1.22元代金券"
-                  }
-                ]
-              },
-              {
-                couponStyleType: 1,
-                couponPayType:2,
-                title: '1.22元代金券',
+                // couponPayType:1,
+                title: '1.44代金',
                 id:'4440',
                 type: "礼品兑换券",
                 description: "本优惠券不可兑换现金，不可找零。",
                 url:
                   "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
-                freeCoupons:[
-                  {
-                      "id": 4839,
-                      "title": "全品类"
-                  },
-                  {
-                      "id": 4840,
-                      "title": "全品类1"
-                  }
-                ],
-                chargeCoupons: [
-                  {
-                      "id": 4420,
-                      "title": "1.11元代金券"
-                  },
+                coupons:[
                   {
                       "id": 4430,
-                      "title": "1.22元代金券"
+                      "title": "1.22代金"
+                  },
+                  {
+                      "id": 4440,
+                      "title": "1.44代金"
+                  }
+                ]
+              },
+              {
+                couponStyleType: 1,
+                // couponPayType:1,
+                title: '1.22代金',
+                id:'4430',
+                type: "礼品兑换券",
+                description: "本优惠券不可兑换现金，不可找零。",
+                url:
+                  "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
+                coupons:[
+                  {
+                      "id": 4430,
+                      "title": "1.22代金"
+                  },
+                  {
+                      "id": 4440,
+                      "title": "1.44代金"
                   }
                 ]
               }

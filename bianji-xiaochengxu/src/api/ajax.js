@@ -1,12 +1,12 @@
 import axios from 'axios'
 import qs from 'qs'
 
-//let base = 'http://open.liantuobank.cn'
-//if (window.location.hostname === 'localhost') {
- // base = '/api'
-//}
+let base = 'http://open.liantuobank.cn'
+if (window.location.hostname === 'localhost') {
+ base = '/api'
+}
 const ajax = axios.create({
-  //baseURL: base,
+  baseURL: base,
   withCredentials: true
 })
 ajax.interceptors.request.use(function (config) {

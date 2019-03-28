@@ -8,8 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 
 Vue.use(VueDND)
-Vue.use(ElementUI )
-
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

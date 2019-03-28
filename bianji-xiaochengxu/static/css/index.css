@@ -76,13 +76,18 @@ label.brand-checkbox > input:disabled + span, label.brand-radio > input:disabled
 
 .decorate-center-main { min-height: 540px; background-color: #fff; }
 
+.decorate-center-main>div>div{    -webkit-transition: all 160ms;
+  transition: all 160ms;}
+
 .decorate-module-preview-group { position: relative; z-index: 190; background-color: #f6f6f6; }
 .decorate-module-preview-group.active { z-index: 192; }
 .decorate-module-preview-group.active .preview-drag { display: block; z-index: 220; }
 .decorate-module-preview-group.active::before { display: block; z-index: 209; }
 .decorate-module-preview-group.active .preview-box { z-index: 211; }
 .decorate-module-preview-group .preview-drag { position: absolute; left: 50%; z-index: 201; background: #fff; width: 50px; height: 20px; line-height: 20px; border: 1px solid #eee; color: #888; margin-left: -25px; top: -2px; text-align: center; border-bottom-left-radius: 100px; border-bottom-right-radius: 100px; display: none; cursor: move; }
+/* .decorate-module-preview-group:hover .preview-drag { display: block;} */
 .decorate-module-preview-group::before { content: ""; position: absolute; z-index: 0; top: -2px; right: -2PX; left: -2PX; bottom: -2px; border: 1px dashed #1890ff; display: none; }
+.decorate-module-preview-group:hover::before{display: block; }
 .decorate-module-preview-group .preview-box { position: relative; z-index: 200; }
 .decorate-module-preview-group .preview-editing { position: relative; }
 .decorate-module-preview-group .preview-editing::after { content: ""; position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px; border: 2px dashed red; }
