@@ -288,9 +288,8 @@
                     <div
                       class="hml-li"
                       v-for="(items,key) in item.list"
+                      :style="{'float':items.row&&items.row == 2?'right':'left'}"
                     >
-                      <!-- :style="{'float':items.row&&items.row == 2?'right':'left'}" -->
-
                       <div class="hml-item">
                         <div
                           class="hml-table-cell"
@@ -604,9 +603,9 @@
         </div>
         <div
           style="wdith:100%;height:60px;display: flex;justify-content: center;align-items: center;"
-          v-if="supportSwitchVal"
+          v-if="setting.supportSwitchVal"
         >
-          <span>{{supportVal}}</span>提供技术支持
+          <span>{{setting.supportVal}}</span>提供技术支持
         </div>
 
         <div class="decorate-footer" @click="fnModuleEdit('tabBar')">
@@ -639,7 +638,7 @@
             style="margin-top: 30px;display: flex;justify-content: space-between;align-items: center;"
           >
             <span>底部展示</span>
-            <el-switch v-model="supportSwitchVal" active-color="#1890ff" inactive-color="#999"></el-switch>
+            <el-switch v-model="setting.supportSwitchVal" active-color="#1890ff" inactive-color="#999"></el-switch>
           </h5>
           <div class="decorate-form-group">
             <label class="dfg-label">展示名称：</label>
@@ -652,7 +651,7 @@
                 type="text"
                 class="form-control"
                 maxlength="10"
-                v-model.trim="supportVal"
+                v-model.trim="setting.supportVal"
               >
               <span style="display:block;font-size: 12px;">提供技术支持</span>
             </div>
@@ -1638,8 +1637,6 @@ export default {
       api: api,
       until: until,
       datas: [],
-      supportSwitchVal: true,
-      supportVal: "联拓富",
       footer: {
         type: "tabBar",
         list: [
@@ -1661,7 +1658,9 @@ export default {
       currentKey: null,
       clData: "",
       setting: {
-        title: "页面设置"
+        title: "页面设置",
+        supportSwitchVal: true,
+        supportVal: "联拓富",
       },
       coupons: {
         appStatus: true,
@@ -1707,7 +1706,7 @@ export default {
   created() {
     // this.initSwiper();
     // console.log(JSON.stringify(this.datas));
-    this.datas = until.datas;
+    this.datas = until.datas.contents;
     let arr1 = [];
     let arr = [];
     for (let b = 0; b < this.coupons.freeCoupons.length; b++) {
@@ -1937,7 +1936,7 @@ export default {
           brandBusiness: "网页设计"
         };
       }
-      until.datas.push(obj);
+      this.datas.push(obj);
     },
 
     // 停止拖动模块
@@ -2183,16 +2182,16 @@ export default {
     //保存
     fnSubmit() {
       let ids = [];
-      // for (let i = 0; i < this.datas.length; i++) {
-      //   if (this.datas[i].type == "freeCoupons") {
-      //     for (let k = 0; k < this.datas[i].Items.length; k++) {
-      //       for (let j = 0; j < this.datas[i].Items[k].list.length; j++) {
-      //         ids.push(parseInt(this.datas[i].Items[k].list[j].id))
-      //       }
-      //     }
-      //   }
-      // }
-      console.log(this.datas);
+      for (let i = 0; i < this.datas.length; i++) {
+        if (this.datas[i].type == "freeCouponCard" || this.datas[i].type == "chargeCouponsCard") {
+          for (let k = 0; k < this.datas[i].Items.length; k++) {
+            for (let j = 0; j < this.datas[i].Items[k].list.length; j++) {
+              ids.push(parseInt(this.datas[i].Items[k].list[j].id))
+            }
+          }
+        }
+      }
+      console.log(until.datas);
       console.log(ids);
     }
   }

@@ -1,4 +1,27 @@
-const datas =  [
+const datas =  {
+  setting: {
+    title: "页面设置",
+    supportSwitchVal: true,
+    supportVal: "联拓富",
+  },
+  footer:{
+    type: "tabBar",
+    list: [
+      {
+        iconPath: "http://www.xiaoairenbase.cn/likongkong/homepage.png",
+        selectedIconPath:
+          "http://www.xiaoairenbase.cn/likongkong/homepage_c.png",
+        name: "会员首页"
+      },
+      // {
+      //   iconPath: "http://www.xiaoairenbase.cn/likongkong/couponpage.png",
+      //   selectedIconPath:
+      //     "http://www.xiaoairenbase.cn/likongkong/couponpage_c.png",
+      //   name: "专享优惠"
+      // }
+    ]
+  },
+  contents : [
     {
         imageUrl: "http://www.xiaoairenbase.cn/likongkong/head.jpg",
         type: "member"
@@ -171,5 +194,9 @@ const datas =  [
         ]
       }
 ]
+}
+
+
+
 
   export default {datas}
