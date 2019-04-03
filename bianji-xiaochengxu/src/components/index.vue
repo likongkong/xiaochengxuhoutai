@@ -1,21 +1,25 @@
 <template>
   <!-- <div class="mx-iframe-body" style="min-width: 1030px;"> -->
   <div id="js_mxVue">
-    <!-- <div class="mx-page-header decorate-header-fixed">
-            <h1 class="mx-page-title"><a href="javascript:history.go(-1);" class="mx-page-back"><i class="mx-page-back-icon"></i>返回</a>
-                <span>编辑小程序</span> <span> | </span> <span>(未授权)</span>
-                <div class="pull-right"><button type="button" class="btn btn-primary btn-sm">保存</button></div>
-            </h1>
-            <div class="mx-page-explain text-ellipsis">当前状态：<span title="点击查看详情" id="js_statusTxt" class="cursor-pointer"
-                    style="color: rgb(76, 174, 76);">品牌未绑定小程序</span></div>
-    </div>-->
-    <div class="pull-right" style=" position: fixed;top: 0;right: 0;">
-      <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE');">保存</button>
+    <div class="mx-page-header decorate-header-fixed">
+      <h1 class="mx-page-title">
+          <span>编辑小程序</span> <span> </span> <span></span>
+          <div class="pull-right">
+            <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE')">保存</button>
+          </div>
+      </h1>
+      <div class="mx-page-explain text-ellipsis">当前状态：
+        <span title="点击查看详情" id="js_statusTxt" class="cursor-pointer" style="color: rgb(76, 174, 76);">品牌未绑定小程序</span>
+      </div>
+      <div class="pull-right" style=" position: fixed;top: 0;right: 0;z-index:100;">
+        <!-- <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE');">保存</button> -->
+      </div>
     </div>
+    
 
-    <div class="decorate-content">
+    <div class="decorate-content" id="content">
       <!-- left  内容 -->
-      <div class="decorate-aside-group">
+      <div class="decorate-aside-group aside-left">
         <div class="decorate-aside-header">
           <h3 class="aside-title">小程序</h3>
           <div class="aside-tab">
@@ -27,7 +31,7 @@
             <h2 class="mx-sub-title">会员信息</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/head.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554270278615.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -42,7 +46,7 @@
             <h2 class="mx-sub-title">图片轮播</h2>
           </div>
           <div class="module-box">
-            <img src="https://pos.weifrom.com/static/common/images/micro/banner/b_01.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -57,7 +61,7 @@
             <h2 class="mx-sub-title">功能列表</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/btnMenu.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554270957214.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -72,7 +76,7 @@
             <h2 class="mx-sub-title">品牌介绍</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/brandIntro.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554271067003.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -98,7 +102,7 @@
             <h2 class="mx-sub-title">门店信息</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/shopIntro.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554271219822.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -113,7 +117,7 @@
             <h2 class="mx-sub-title">门店图片</h2>
           </div>
           <div class="module-box">
-            <img src="https://pos.weifrom.com/static/common/images/micro/preview/p_05.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554270841131.jpg" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -128,7 +132,7 @@
             <h2 class="mx-sub-title">免费卡券</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/couponCard.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554271367430.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -143,7 +147,7 @@
             <h2 class="mx-sub-title">付费卡券</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/couponCard.jpg" alt>
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554271401143.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -158,7 +162,7 @@
             <h2 class="mx-sub-title">付费卡券</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/couponCard.jpg" alt>
+            <img src="../../static/image/couponCard.jpg" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -167,13 +171,13 @@
               @click="fnModuleSelect('couponCard')"
             >选择使用</button>
           </div>
-        </div> -->
+        </div>-->
         <!-- <div class="decorate-module-select-group">
           <div class="mx-sub-header">
             <h2 class="mx-sub-title">底部导航</h2>
           </div>
           <div class="module-box">
-            <img src="http://www.xiaoairenbase.cn/likongkong/footer.png" alt>
+            <img src="../../static/image/footer.png" alt>
           </div>
           <div class="module-select-box">
             <button
@@ -187,16 +191,16 @@
 
       <!-- center 内容 -->
       <div class="decorate-center-group">
-        <div class="center-topbar"></div>
-        <div class="center-title" @click="fnModuleEdit('pageSetting')">{{setting.title}}</div>
+        <div class="center-topbar" > <img style="width:100%" src="http://club.liantuobank.com/imgPath/club-open/1554278245739.png" alt=""> </div>
+        <div class="center-title decorate-module-preview-group" @click="fnModuleEdit('pageSetting')">{{until.datas.setting.title}}</div>
         <div class="decorate-center-main">
-          <draggable v-model="datas" @update="datadragEnd">
+          <draggable v-model="datas" @update="datadragEnd" :options="{animation: 200}">
             <div v-for="(item,key) in datas" :key="key">
               <!-- 会员信息 -->
               <div v-if="item.type == 'member'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group hide-swiper-pagination"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -210,7 +214,7 @@
               <div v-if="item.type == 'banner'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group hide-swiper-pagination"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -251,7 +255,7 @@
               <div v-else-if="item.type == 'shopPic'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -275,7 +279,7 @@
               <div v-else-if="item.type == 'btnMenu'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -311,7 +315,7 @@
               <div v-else-if="item.type == 'brandIntro'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-brand-preview-group"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -327,7 +331,7 @@
                     </div>
                     <div class="brand-intro-group">
                       <div class="bi-box">
-                        <img src="../assets/hu.png" class="bi-hu">
+                        <img src="http://club.liantuobank.com/imgPath/club-open/1554278228054.png" class="bi-hu">
                         <div class="bi-info">{{item.brandInfo}}</div>
                         <ul class="bi-list">
                           <li class="bi-li">
@@ -353,7 +357,7 @@
               <div v-else-if="item.type == 'shopIntro'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-info-preview-group"
-                  :class="{'active':currentKey==key}"
+                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -369,7 +373,7 @@
                         <span>{{items.shopName}}</span>
                         <div class="dsi-i-abs">
                           <img
-                            src="http://www.xiaoairenbase.cn/likongkong/phone.png"
+                            src="http://club.liantuobank.com/imgPath/club-open/1554278212060.png"
                             alt
                             class="dsi-i-icon"
                             draggable="false"
@@ -388,7 +392,7 @@
               <div v-else-if="item.type == 'freeCouponCard'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
-                  :class="{'active':currentKey==key}"
+                  @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -462,9 +466,7 @@
               <!-- 付费优惠券 -->
               <div v-else-if="item.type == 'chargeCouponsCard'" @click="fnModuleEdit(item,key)">
                 <div
-                  class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
-                  :class="{'active':currentKey==key}"
-                >
+                  class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group" @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}">
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
                   </div>
@@ -484,45 +486,19 @@
                       :class="key == item.couponTabbarKey ?'':'hide'"
                     >
                       <div v-for="(item2,key) in item1.list">
-                          <div class="pay-card-1 coupons-card" v-if="item2.couponStyleType == 1">
-                            <div class="coupons-img">
-                              <span>新品</span>
-                              <img :src="item2.url">
-                            </div>
-                            <div class="coupons-info">
-                              <div class="coupons-title">{{item2.title}}</div>
-                              <div class="coupons-info-b">
-                                <div class="coupons-price">
-                                  <p>
-                                    <b>￥</b>999
-                                    <span>
-                                      <img src="../assets/VIP.png"> 优惠89元
-                                    </span>
-                                  </p>
-                                  <span class="coupons-get">购 买</span>
-                                </div>
-                                <div class="coupons-buy-num">
-                                  <span style="text-decoration:line-through">￥100</span>
-                                  <span>100人购买</span>
-                                </div>
-                              </div>
-                            </div>
+                        <div class="pay-card-1 coupons-card" v-if="item2.couponStyleType == 1">
+                          <div class="coupons-img">
+                            <span>新品</span>
+                            <img :src="item2.url">
                           </div>
-                          <div
-                            class="pay-card-1-2 coupons-card"
-                            v-else-if="item2.couponStyleType == 2"
-                          >
-                            <div class="coupons-img">
-                              <span>新品</span>
-                              <img :src="item2.url">
-                            </div>
-                            <div class="coupons-info">
-                              <div class="coupons-title">{{item2.title}}</div>
+                          <div class="coupons-info">
+                            <div class="coupons-title">{{item2.title}}</div>
+                            <div class="coupons-info-b">
                               <div class="coupons-price">
                                 <p>
-                                  <b>￥</b>20
+                                  <b>￥</b>999
                                   <span>
-                                    <img src="../assets/VIP.png"> 优惠1元
+                                    <img src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"> 优惠89元
                                   </span>
                                 </p>
                                 <span class="coupons-get">购 买</span>
@@ -533,6 +509,32 @@
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div
+                          class="pay-card-1-2 coupons-card"
+                          v-else-if="item2.couponStyleType == 2"
+                        >
+                          <div class="coupons-img">
+                            <span>新品</span>
+                            <img :src="item2.url">
+                          </div>
+                          <div class="coupons-info">
+                            <div class="coupons-title">{{item2.title}}</div>
+                            <div class="coupons-price">
+                              <p>
+                                <b>￥</b>20
+                                <span>
+                                  <img src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"> 优惠1元
+                                </span>
+                              </p>
+                              <span class="coupons-get">购 买</span>
+                            </div>
+                            <div class="coupons-buy-num">
+                              <span style="text-decoration:line-through">￥100</span>
+                              <span>100人购买</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -544,45 +546,19 @@
                     </h3>
                     <div class="coupons">
                       <div v-for="(item2,key) in item1.list">
-                          <div class="pay-card-1 coupons-card" v-if="item2.couponStyleType == 1">
-                            <div class="coupons-img">
-                              <span>新品</span>
-                              <img :src="item2.url">
-                            </div>
-                            <div class="coupons-info">
-                              <div class="coupons-title">{{item2.title}}</div>
-                              <div class="coupons-info-b">
-                                <div class="coupons-price">
-                                  <p>
-                                    <b>￥</b>999
-                                    <span>
-                                      <img src="../assets/VIP.png"> 优惠89元
-                                    </span>
-                                  </p>
-                                  <span class="coupons-get">购 买</span>
-                                </div>
-                                <div class="coupons-buy-num">
-                                  <span style="text-decoration:line-through">￥100</span>
-                                  <span>100人购买</span>
-                                </div>
-                              </div>
-                            </div>
+                        <div class="pay-card-1 coupons-card" v-if="item2.couponStyleType == 1">
+                          <div class="coupons-img">
+                            <span>新品</span>
+                            <img :src="item2.url">
                           </div>
-                          <div
-                            class="pay-card-1-2 coupons-card"
-                            v-else-if="item2.couponStyleType == 2"
-                          >
-                            <div class="coupons-img">
-                              <span>新品</span>
-                              <img :src="item2.url">
-                            </div>
-                            <div class="coupons-info">
-                              <div class="coupons-title">{{item2.title}}</div>
+                          <div class="coupons-info">
+                            <div class="coupons-title">{{item2.title}}</div>
+                            <div class="coupons-info-b">
                               <div class="coupons-price">
                                 <p>
-                                  <b>￥</b>20
+                                  <b>￥</b>999
                                   <span>
-                                    <img src="../assets/VIP.png"> 优惠1元
+                                    <img src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"> 优惠89元
                                   </span>
                                 </p>
                                 <span class="coupons-get">购 买</span>
@@ -593,6 +569,32 @@
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <div
+                          class="pay-card-1-2 coupons-card"
+                          v-else-if="item2.couponStyleType == 2"
+                        >
+                          <div class="coupons-img">
+                            <span>新品</span>
+                            <img :src="item2.url">
+                          </div>
+                          <div class="coupons-info">
+                            <div class="coupons-title">{{item2.title}}</div>
+                            <div class="coupons-price">
+                              <p>
+                                <b>￥</b>20
+                                <span>
+                                  <img src="http://club.liantuobank.com/imgPath/club-open/1554278047737.png"> 优惠1元
+                                </span>
+                              </p>
+                              <span class="coupons-get">购 买</span>
+                            </div>
+                            <div class="coupons-buy-num">
+                              <span style="text-decoration:line-through">￥100</span>
+                              <span>100人购买</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -602,19 +604,20 @@
           </draggable>
         </div>
         <div
-          style="wdith:100%;height:60px;display: flex;justify-content: center;align-items: center;"
-          v-if="setting.supportSwitchVal"
+          class="decorate-module-preview-group"
+          style="wdith:100%;height:40px;font-size:12px; display: flex;justify-content: center;align-items: center;background:#fff;"
+          v-if="until.datas.setting.supportSwitchVal"
         >
-          <span>{{setting.supportVal}}</span>提供技术支持
+          <span>{{until.datas.setting.supportVal}}</span>提供技术支持
         </div>
 
-        <div class="decorate-footer" @click="fnModuleEdit('tabBar')">
-          <div class="df-item" v-for="(item,key) in footer.list">
+        <div class="decorate-footer decorate-module-preview-group" @click="fnModuleEdit('tabBar')">
+          <div class="df-item" v-for="(item,key) in until.datas.footer.list">
             <img :src="key == 0?item.selectedIconPath:item.iconPath" alt class="df-icon">
             <h5 class="df-title" :style="key == 0?'color:#0ddfbd;':''">{{item.name}}</h5>
           </div>
           <div class="df-item">
-            <img src="http://www.xiaoairenbase.cn/likongkong/clubcardpage.png" alt class="df-icon">
+            <img src="http://club.liantuobank.com/imgPath/club-open/1554278110086.png" alt class="df-icon">
             <h5 class="df-title">会员</h5>
           </div>
         </div>
@@ -622,7 +625,7 @@
 
       <!-- right  内容 -->
       <!-- 页面设置 -->
-      <div class="decorate-aside-group aside-right" v-if="currentType == 'pageSetting'">
+      <div class="decorate-aside-group  aside-right" v-if="currentType == 'pageSetting'">
         <div class="decorate-aside-header">
           <h3 class="aside-title">页面设置</h3>
         </div>
@@ -630,7 +633,7 @@
           <div class="decorate-form-group">
             <label class="dfg-label">页面标题：</label>
             <div class="dfg-control-box">
-              <input type="text" class="form-control" maxlength="10" v-model.trim="setting.title">
+              <input type="text" class="form-control" maxlength="10" v-model.trim="until.datas.setting.title">
             </div>
           </div>
 
@@ -638,7 +641,11 @@
             style="margin-top: 30px;display: flex;justify-content: space-between;align-items: center;"
           >
             <span>底部展示</span>
-            <el-switch v-model="setting.supportSwitchVal" active-color="#1890ff" inactive-color="#999"></el-switch>
+            <el-switch
+              v-model="until.datas.setting.supportSwitchVal"
+              active-color="#1890ff"
+              inactive-color="#999"
+            ></el-switch>
           </h5>
           <div class="decorate-form-group">
             <label class="dfg-label">展示名称：</label>
@@ -651,7 +658,7 @@
                 type="text"
                 class="form-control"
                 maxlength="10"
-                v-model.trim="setting.supportVal"
+                v-model.trim="until.datas.setting.supportVal"
               >
               <span style="display:block;font-size: 12px;">提供技术支持</span>
             </div>
@@ -798,65 +805,71 @@
         <div class="p20" style="color: #dd4545;">*此模块不可手动编辑，自定义功能正在研发中</div>
         <!-- <div class="decorate-aside-control-box">
           <button class="btn btn-primary" @click="fnModuleAdd('MODULE_ADD');">添加功能模块</button>
-        </div> -->
+        </div>-->
         <div>
-          <draggable v-model="datas[currentKey].list" >
-          <div
-            class="decorate-edit-group decorate-edit-modult-group js_editItem"
-            v-for="(bItem,bIndex) in datas[currentKey].list"
-          >
-            <div class="edit-box">
-              <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex);">
-                <i class="fa fa-close edit-trash"></i>
+          <draggable v-model="datas[currentKey].list">
+            <div
+              class="decorate-edit-group decorate-edit-modult-group js_editItem"
+              v-for="(bItem,bIndex) in datas[currentKey].list"
+            >
+              <div class="edit-box">
+                <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex);">
+                  <i class="fa fa-close edit-trash"></i>
+                </div>
+                <div title="拖动" class="edit-control">
+                  <i class="fa fa-arrows edit-arrows"></i>
+                </div>
               </div>
-              <div title="拖动" class="edit-control">
-                <i class="fa fa-arrows edit-arrows"></i>
-              </div>
-            </div>
-            <div class="edit-content">
-              <div class="decorate-form-group l-w60">
-                <label class="dfg-label">图标：</label>
-                <div class="dfg-control-box">
-                  <div title="点击更换图标" class="brand-crop-view">
-                    <!-- <input
+              <div class="edit-content">
+                <div class="decorate-form-group l-w60">
+                  <label class="dfg-label">图标：</label>
+                  <div class="dfg-control-box">
+                    <div title="点击更换图标" class="brand-crop-view">
+                      <!-- <input
                       type="file"
                       class="edit-file"
                       @change="fnUploadPreview({dom:$event.target,type:'BTN_MENU_ICON_EDIT',index:bIndex})"
-                    > -->
-                    <img
-                      :src="bItem.imageUrl&&bItem.imageUrl!=''?bItem.imageUrl:'https://pos.weifrom.com/static/common/images/common/upload_pic.jpg'"
-                      alt="图片"
-                      class="view-img"
-                    >
-                    <!-- <div
+                      >-->
+                      <img
+                        :src="bItem.imageUrl&&bItem.imageUrl!=''?bItem.imageUrl:'https://pos.weifrom.com/static/common/images/common/upload_pic.jpg'"
+                        alt="图片"
+                        class="view-img"
+                      >
+                      <!-- <div
                       class="view-del-box view-del"
                       @click.stop="fnUploadFileDel({type:'BTN_MENU_ICON',index:bIndex});"
                       v-if="bItem.imageUrl&&bItem.imageUrl!=''"
                     >
                       <span>删除</span>
-                    </div> -->
+                      </div>-->
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="decorate-form-group l-w60">
-                <label class="dfg-label">名称：</label>
-                <div class="dfg-control-box">
-                  <input type="text" maxlength="6" disabled class="form-control" v-model.trim="bItem.title">
+                <div class="decorate-form-group l-w60">
+                  <label class="dfg-label">名称：</label>
+                  <div class="dfg-control-box">
+                    <input
+                      type="text"
+                      maxlength="6"
+                      disabled
+                      class="form-control"
+                      v-model.trim="bItem.title"
+                    >
+                  </div>
                 </div>
-              </div>
-              <div class="decorate-form-group l-w60">
-                <label class="dfg-label">描述：</label>
-                <div class="dfg-control-box">
-                  <input
-                    type="text"
-                    maxlength="6"
-                    class="form-control"
-                    v-model.trim="bItem.subTitle"
-                    disabled
-                  >
+                <div class="decorate-form-group l-w60">
+                  <label class="dfg-label">描述：</label>
+                  <div class="dfg-control-box">
+                    <input
+                      type="text"
+                      maxlength="6"
+                      class="form-control"
+                      v-model.trim="bItem.subTitle"
+                      disabled
+                    >
+                  </div>
                 </div>
-              </div>
-              <!-- <div class="decorate-form-group l-w60">
+                <!-- <div class="decorate-form-group l-w60">
                 <label class="dfg-label">跳转：</label>
                 <div class="dfg-control-box">
                   <div style="height: 34px; line-height: 34px;">
@@ -904,8 +917,8 @@
                     <option value="2">2列</option>
                   </select>
                 </div>
-              </div>-->
-              <!-- <div class="decorate-form-group l-w60">
+                </div>-->
+                <!-- <div class="decorate-form-group l-w60">
                 <label class="dfg-label">背景色：</label>
                 <div class="dfg-control-box">
                   <div class="form-control">
@@ -914,8 +927,8 @@
                     ></div>#3794f3
                   </div>
                 </div>
-              </div>-->
-              <!-- <div class="decorate-form-group l-w60">
+                </div>-->
+                <!-- <div class="decorate-form-group l-w60">
                 <label class="dfg-label">背景图：</label>
                 <div class="dfg-control-box">
                   <div class="brand-crop-view">
@@ -931,9 +944,9 @@
                     </div>
                   </div>
                 </div>
-              </div>-->
+                </div>-->
+              </div>
             </div>
-          </div>
           </draggable>
         </div>
       </div>
@@ -1216,27 +1229,27 @@
             </div>
           </div>
         </div>
-        <draggable v-model="datas[currentKey].Items" >
-        <div
-          class="decorate-edit-group decorate-edit-modult-group js_editItem"
-          v-for="(item,bIndex) in datas[currentKey].Items"
-        >
-          <div class="edit-box">
-            <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
-              <i class="fa fa-close edit-trash"></i>
-            </div>
-            <div title="拖动" class="edit-control">
-              <i class="fa fa-arrows edit-arrows"></i>
-            </div>
-          </div>
-          <div class="edit-content">
-            <div class="decorate-form-group">
-              <label class="dfg-label">列表名称：</label>
-              <div class="dfg-control-box">
-                <input type="text" maxlength="6" class="form-control" v-model="item.title">
+        <draggable v-model="datas[currentKey].Items">
+          <div
+            class="decorate-edit-group decorate-edit-modult-group js_editItem"
+            v-for="(item,bIndex) in datas[currentKey].Items"
+          >
+            <div class="edit-box">
+              <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
+                <i class="fa fa-close edit-trash"></i>
+              </div>
+              <div title="拖动" class="edit-control">
+                <i class="fa fa-arrows edit-arrows"></i>
               </div>
             </div>
-            <!-- <div class="decorate-form-group">
+            <div class="edit-content">
+              <div class="decorate-form-group">
+                <label class="dfg-label">列表名称：</label>
+                <div class="dfg-control-box">
+                  <input type="text" maxlength="6" class="form-control" v-model="item.title">
+                </div>
+              </div>
+              <!-- <div class="decorate-form-group">
               <label class="dfg-label">支付模式：</label>
               <div class="dfg-control-box">
                 <div style="height: 34px; line-height: 34px;">
@@ -1250,8 +1263,8 @@
                   </label>
                 </div>
               </div>
-            </div> -->
-            <!-- <div style="background:#fff; padding:5px 0;">
+              </div>-->
+              <!-- <div style="background:#fff; padding:5px 0;">
               <h5
                 style="display: flex;align-items: center;padding:0 15px"
               >
@@ -1283,8 +1296,8 @@
                   </div>
                 </div>
               </div>
-            </div>-->
-            <!-- <div class="decorate-form-group" v-if="item.couponPayType==2">
+              </div>-->
+              <!-- <div class="decorate-form-group" v-if="item.couponPayType==2">
               <label class="dfg-label">列表样式：</label>
               <div class="dfg-control-box">
                 <div style="height: 34px; line-height: 34px;">
@@ -1298,31 +1311,31 @@
                   </label>
                 </div>
               </div>
-            </div> -->
-            <div class="decorate-aside-control-box" style="border:none">
-              <button
-                class="btn btn-primary"
-                @click="fnCoupon({dom:$event.target,type:'COUPON_ADD',key:bIndex})"
-              >添加优惠券模块</button>
-            </div>
-            <draggable v-model="item.list" >
-            <div
-              class="decorate-form-row"
-              style="margin-bottom:10px"
-              v-for="(item,key) in item.list"
-            >
-              <div>
-                <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
-                  <div class="edit-box">
-                    <div title="删除" class="edit-control" @click="fnModuleItem1Del(bIndex,key);">
-                      <i class="fa fa-close edit-trash"></i>
-                    </div>
-                    <div title="拖动" class="edit-control">
-                      <i class="fa fa-arrows edit-arrows"></i>
-                    </div>
-                  </div>
-                  <div class="edit-content">
-                    <!-- <div class="decorate-form-group">
+              </div>-->
+              <div class="decorate-aside-control-box" style="border:none">
+                <button
+                  class="btn btn-primary"
+                  @click="fnCoupon({dom:$event.target,type:'COUPON_ADD',key:bIndex})"
+                >添加优惠券模块</button>
+              </div>
+              <draggable v-model="item.list">
+                <div
+                  class="decorate-form-row"
+                  style="margin-bottom:10px"
+                  v-for="(item,key) in item.list"
+                >
+                  <div>
+                    <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
+                      <div class="edit-box">
+                        <div title="删除" class="edit-control" @click="fnModuleItem1Del(bIndex,key);">
+                          <i class="fa fa-close edit-trash"></i>
+                        </div>
+                        <div title="拖动" class="edit-control">
+                          <i class="fa fa-arrows edit-arrows"></i>
+                        </div>
+                      </div>
+                      <div class="edit-content">
+                        <!-- <div class="decorate-form-group">
                       <label class="dfg-label">图标：</label>
                       <div class="dfg-control-box">
                         <div title="点击更换图标" class="brand-crop-view mx-upload-group">
@@ -1344,22 +1357,22 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
-                    <div class="decorate-form-group">
-                      <label class="dfg-label">优惠名称：</label>
-                      <div class="dfg-control-box">
-                        <el-select v-model="item.title" placeholder="请选择">
-                          <el-option
-                            v-for="(item1,key1) in item.coupons"
-                            :key="item1.id"
-                            :label="item1.title"
-                            :value="item.id"
-                            @click.native="option_click_handler(item1,bIndex,key,key1)"
-                          ></el-option>
-                        </el-select>
-                      </div>
-                    </div>
-                    <!-- <div class="decorate-form-group">
+                        </div>-->
+                        <div class="decorate-form-group">
+                          <label class="dfg-label">优惠名称：</label>
+                          <div class="dfg-control-box">
+                            <el-select v-model="item.title" placeholder="请选择">
+                              <el-option
+                                v-for="(item1,key1) in item.coupons"
+                                :key="item1.cardId"
+                                :label="item1.title"
+                                :value="item.cardId"
+                                @click.native="option_click_handler(item1,bIndex,key,key1)"
+                              ></el-option>
+                            </el-select>
+                          </div>
+                        </div>
+                        <!-- <div class="decorate-form-group">
                       <label class="dfg-label">优惠类型：</label>
                       <div class="dfg-control-box">
                         <input type="text" maxlength="6" class="form-control" v-model="item.type">
@@ -1375,17 +1388,17 @@
                           v-model="item.description"
                         >
                       </div>
-                    </div> -->
+                        </div>-->
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </draggable>
             </div>
-            </draggable>
           </div>
-        </div>
         </draggable>
       </div>
-      
+
       <!-- 编辑付费卡券模块 -->
       <div class="decorate-aside-group aside-right" v-if="currentType == 'chargeCouponsCard'">
         <div class="decorate-aside-header">
@@ -1417,28 +1430,28 @@
             </div>
           </div>
         </div>
-        <draggable v-model="datas[currentKey].Items" >
-        <div
-          class="decorate-edit-group decorate-edit-modult-group js_editItem"
-          v-for="(item,bIndex) in datas[currentKey].Items"
-        >
-          <div class="edit-box">
-            <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
-              <i class="fa fa-close edit-trash"></i>
-            </div>
-            <div title="拖动" class="edit-control">
-              <i class="fa fa-arrows edit-arrows"></i>
-            </div>
-          </div>
-          <div class="edit-content">
-            <div class="decorate-form-group">
-              <label class="dfg-label">列表名称：</label>
-              <div class="dfg-control-box">
-                <input type="text" maxlength="6" class="form-control" v-model="item.title">
+        <draggable v-model="datas[currentKey].Items">
+          <div
+            class="decorate-edit-group decorate-edit-modult-group js_editItem"
+            v-for="(item,bIndex) in datas[currentKey].Items"
+          >
+            <div class="edit-box">
+              <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
+                <i class="fa fa-close edit-trash"></i>
+              </div>
+              <div title="拖动" class="edit-control">
+                <i class="fa fa-arrows edit-arrows"></i>
               </div>
             </div>
-           
-            <!-- <div style="background:#fff; padding:5px 0;">
+            <div class="edit-content">
+              <div class="decorate-form-group">
+                <label class="dfg-label">列表名称：</label>
+                <div class="dfg-control-box">
+                  <input type="text" maxlength="6" class="form-control" v-model="item.title">
+                </div>
+              </div>
+
+              <!-- <div style="background:#fff; padding:5px 0;">
               <h5
                 style="display: flex;align-items: center;padding:0 15px"
               >
@@ -1470,46 +1483,46 @@
                   </div>
                 </div>
               </div>
-            </div>-->
-            <div class="decorate-form-group" >
-              <label class="dfg-label">列表样式：</label>
-              <div class="dfg-control-box">
-                <div style="height: 34px; line-height: 34px;">
-                  <label class="radio-inline brand-radio">
-                    <input type="radio" value="1" v-model="item.couponAddStyleType">
-                    <span>单行单列</span>
-                  </label>
-                  <label class="radio-inline brand-radio">
-                    <input type="radio" value="2" v-model="item.couponAddStyleType">
-                    <span>一行两个</span>
-                  </label>
+              </div>-->
+              <div class="decorate-form-group">
+                <label class="dfg-label">列表样式：</label>
+                <div class="dfg-control-box">
+                  <div style="height: 34px; line-height: 34px;">
+                    <label class="radio-inline brand-radio">
+                      <input type="radio" value="1" data-class='pay-card-1' v-model="item.couponAddStyleType">
+                      <span>单行单列</span>
+                    </label>
+                    <label class="radio-inline brand-radio">
+                      <input type="radio" value="2" data-class='pay-card-1-2' v-model="item.couponAddStyleType">
+                      <span>一行两个</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="decorate-aside-control-box" style="border:none">
-              <button
-                class="btn btn-primary"
-                @click="fnCoupon({dom:$event.target,type:'COUPON_ADD',key:bIndex})"
-              >添加优惠券模块</button>
-            </div>
-            <draggable v-model="item.list" >
-            <div
-              class="decorate-form-row"
-              style="margin-bottom:10px"
-              v-for="(item,key) in item.list"
-            >
-              <div>
-                <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
-                  <div class="edit-box">
-                    <div title="删除" class="edit-control" @click="fnModuleItem1Del(bIndex,key);">
-                      <i class="fa fa-close edit-trash"></i>
-                    </div>
-                    <div title="拖动" class="edit-control">
-                      <i class="fa fa-arrows edit-arrows"></i>
-                    </div>
-                  </div>
-                  <div class="edit-content">
-                    <!-- <div class="decorate-form-group">
+              <div class="decorate-aside-control-box" style="border:none">
+                <button
+                  class="btn btn-primary"
+                  @click="fnCoupon({dom:$event.target,type:'COUPON_ADD',key:bIndex})"
+                >添加优惠券模块</button>
+              </div>
+              <draggable v-model="item.list">
+                <div
+                  class="decorate-form-row"
+                  style="margin-bottom:10px"
+                  v-for="(item,key) in item.list"
+                >
+                  <div>
+                    <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
+                      <div class="edit-box">
+                        <div title="删除" class="edit-control" @click="fnModuleItem1Del(bIndex,key);">
+                          <i class="fa fa-close edit-trash"></i>
+                        </div>
+                        <div title="拖动" class="edit-control">
+                          <i class="fa fa-arrows edit-arrows"></i>
+                        </div>
+                      </div>
+                      <div class="edit-content">
+                        <!-- <div class="decorate-form-group">
                       <label class="dfg-label">图标：</label>
                       <div class="dfg-control-box">
                         <div title="点击更换图标" class="brand-crop-view mx-upload-group">
@@ -1531,22 +1544,22 @@
                           </div>
                         </div>
                       </div>
-                    </div> -->
-                    <div class="decorate-form-group">
-                      <label class="dfg-label">优惠名称：</label>
-                      <div class="dfg-control-box">
-                        <el-select v-model="item.title" placeholder="请选择">
-                          <el-option
-                            v-for="(item1,key1) in item.coupons"
-                            :key="item1.id"
-                            :label="item1.title"
-                            :value="item.id"
-                            @click.native="option_click_handler(item1,bIndex,key,key1)"
-                          ></el-option>
-                        </el-select>
-                      </div>
-                    </div>
-                    <!-- <div class="decorate-form-group">
+                        </div>-->
+                        <div class="decorate-form-group">
+                          <label class="dfg-label">优惠名称：</label>
+                          <div class="dfg-control-box">
+                            <el-select v-model="item.title" placeholder="请选择">
+                              <el-option
+                                v-for="(item1,key1) in item.coupons"
+                                :key="item1.cardId"
+                                :label="item1.title"
+                                :value="item.cardId"
+                                @click.native="option_click_handler(item1,bIndex,key,key1)"
+                              ></el-option>
+                            </el-select>
+                          </div>
+                        </div>
+                        <!-- <div class="decorate-form-group">
                       <label class="dfg-label">优惠类型：</label>
                       <div class="dfg-control-box">
                         <input type="text" maxlength="6" class="form-control" v-model="item.type">
@@ -1562,14 +1575,14 @@
                           v-model="item.description"
                         >
                       </div>
-                    </div> -->
+                        </div>-->
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </draggable>
             </div>
-            </draggable>
           </div>
-        </div>
         </draggable>
       </div>
 
@@ -1589,8 +1602,8 @@
               @click="fnTabBar({dom:$event.target,type:'TAB_BAR_ADD'})"
             >添加导航</button>
           </div>
-        </div> -->
-        <div v-for="(item,bIndex) in footer.list">
+        </div>-->
+        <div v-for="(item,bIndex) in until.datas.footer.list">
           <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
             <div class="edit-box">
               <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
@@ -1612,7 +1625,7 @@
                     <option value>主页</option>
                   </select>
                 </div>
-              </div> -->
+              </div>-->
             </div>
           </div>
         </div>
@@ -1625,7 +1638,7 @@
 <script>
 import Swiper from "swiper";
 import draggable from "vuedraggable";
-import api from "../api/api.js";
+import advert from "../api/advert.js";
 import until from "../api/until.js";
 
 export default {
@@ -1634,106 +1647,36 @@ export default {
   },
   data() {
     return {
-      api: api,
+      api: advert,
       until: until,
       datas: [],
-      footer: {
-        type: "tabBar",
-        list: [
-          {
-            iconPath: "http://www.xiaoairenbase.cn/likongkong/homepage.png",
-            selectedIconPath:
-              "http://www.xiaoairenbase.cn/likongkong/homepage_c.png",
-            name: "会员首页"
-          },
-          // {
-          //   iconPath: "http://www.xiaoairenbase.cn/likongkong/couponpage.png",
-          //   selectedIconPath:
-          //     "http://www.xiaoairenbase.cn/likongkong/couponpage_c.png",
-          //   name: "专享优惠"
-          // }
-        ]
-      },
       currentType: "pageSetting",
       currentKey: null,
       clData: "",
-      setting: {
-        title: "页面设置",
-        supportSwitchVal: true,
-        supportVal: "联拓富",
-      },
-      coupons: {
-        appStatus: true,
-        freeCoupons: [
-          {
-            id: 4839,
-            title: "全品类"
-          },
-          {
-            id: 4840,
-            title: "全品类1"
-          },
-          {
-            id: 4850,
-            title: "全品类2"
-          }
-        ],
-        chargeCoupons: [
-          {
-            id: 4440,
-            title: "1.11元代金券"
-          },
-          {
-            id: 4430,
-            title: "1.12元代金券"
-          },
-           {
-            id: 4460,
-            title: "1.141元代金券"
-          }
-        ],
-        appVo: {
-          id: 3,
-          merchantCode: "EW_N6186504029",
-          superMerchantCode: "EW_N6186504029",
-          config: "{13131231231}"
-        },
-        returnCode: "S",
-        returnMessage: "成功"
-      }
+      coupons: {"appStatus":true,"freeCoupons":[{"cardId":4839,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv8o59D7EP4rCDtS5wUwti2M","title":"全品类","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#cc463d","bgImg":"http://open.liantuobank.cn/imgPath/club-open/1552277778584.jpg","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":3,"receiveUser":1,"giveFriend":0,"cardCodeMode":0,"reduceCost":15.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false,"exchangePoint":1000},{"cardId":4602,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv0eFx3xjp0pp8ldhq6aoDxQ","title":"10元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":6,"receiveCnt":43,"receiveUser":3,"giveFriend":0,"cardCodeMode":0,"reduceCost":10.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4311,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvw7QDSyyPhgpaSNkfzCid_0","title":"3折优惠券","subTitle":"请到店后使用","type":1,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":16,"receiveCnt":247,"receiveUser":31,"giveFriend":0,"cardCodeMode":0,"leastCost":0.0,"discount":3.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false,"exchangePoint":2},{"cardId":4310,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvzrMHhnKk-Vgn6GsPrmUIPE","title":"1元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":9,"receiveCnt":39,"receiveUser":30,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4309,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv-7kRzjafCXm1jkiJeESxI8","title":"中秋大礼包兑换券","subTitle":"请到店后使用","type":2,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":2,"receiveCnt":363,"receiveUser":31,"giveFriend":0,"cardCodeMode":0,"leastCost":0.0,"gift":"中秋大礼包","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false}],"chargeCoupons":[{"cardId":4420,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv8l-_ZErIeuBE-furp-wxj8","title":"1.11元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":4,"receiveUser":2,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.11,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":1.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4418,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvzSrOChbDfGebgR6gdK4xOU","title":"11.01元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":0,"receiveUser":0,"giveFriend":0,"cardCodeMode":0,"reduceCost":11.01,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.01,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4362,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv4ZH6GThDzFw1CBODAZkBwE","title":"1元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":1,"receiveCnt":4,"receiveUser":2,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":1.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false}],"appVo":{"id":3,"merchantCode":"EW_N6186504029","superMerchantCode":"EW_N6186504029","config":""},"returnCode":"S","returnMessage":"成功"},
+      current:0,
+      classenable:false,
+      asd:'ssssssss'
     };
   },
+ 
   created() {
-    // this.initSwiper();
-    // console.log(JSON.stringify(this.datas));
-    this.datas = until.datas.contents;
-    let arr1 = [];
-    let arr = [];
-    for (let b = 0; b < this.coupons.freeCoupons.length; b++) {
-      arr1.push(this.coupons.freeCoupons[b].id);
-    }
-    for (let b = 0; b < this.coupons.chargeCoupons.length; b++) {
-      arr.push(this.coupons.chargeCoupons[b].id);
-    }
-    for (let i = 0; i < this.datas.length; i++) {
-      if (this.datas[i].type == "freeCouponCard" || this.datas[i].type == "chargeCouponsCard") {
-        for (let k = 0; k < this.datas[i].Items.length; k++) {
-          for (let j = 0; j < this.datas[i].Items[k].list.length; j++) {
-            this.datas[i].Items[k].list[j].coupons = this.datas[i].type == "freeCouponCard"?this.coupons.freeCoupons:this.coupons.chargeCoupons;
-            let ids =
-              this.datas[i].type == "freeCouponCard" ? arr1 : arr;
-            let id = parseInt(this.datas[i].Items[k].list[j].id);
-            if (ids.indexOf(id) == -1) {
-              if (this.datas[i].Items[k].list.length == 1) {
-                this.datas[i].Items.splice(k--, 1);
-              } else {
-                this.datas[i].Items[k].list.splice(j--, 1);
-              }
-            }
-          }
-        }
-      }
-    }
+    let c =  {};
+    console.log("api::", this.api);
+      this.datas = this.until.datas.contents
+      // this.coupons = this.data
+      this.deleteCoupons(this.coupons)
+      
+    // this.api.clubMarketApp({"merchantCode":"EW_N6186504029"}).then(res=>{
+    //   let config = res.data.appVo.config;
+    //   this.datas = config == ""?this.until.datas.contents:config;
+    //   // console.log(this.datas)
+    //   console.log(res.data)
+    //   this.coupons = res.data
+    //   for(let k in this.datas){
+    //     if(this.datas[k].type == 'freeCouponCard' || this.datas[k].type == 'chargeCouponsCard'){this.deleteCoupons(this.coupons);}
+    //   }
+    // })
   },
   mounted() {
     this.initSwiper();
@@ -1746,6 +1689,59 @@ export default {
           Math.pow(10, num - 1)
       );
       return random;
+    },
+    // 重置优惠券优惠券
+    deleteCoupons(c) {
+      let arr1 = [];
+      let arr = [];
+      for (let b in c.freeCoupons) {
+        arr1.push(c.freeCoupons[b].cardId);
+      }
+      for (let b in c.chargeCoupons) {
+        arr.push(c.chargeCoupons[b].cardId);
+      }
+      for (let i in this.datas) {
+        if (
+          this.datas[i].type == "freeCouponCard" ||
+          this.datas[i].type == "chargeCouponsCard"
+        ) {
+          for (let k in this.datas[i].Items) {
+            for (let j in this.datas[i].Items[k].list) {
+              let list = this.datas[i].Items[k].list[j];
+              let styleType = this.datas[i].Items[k].list[j].couponStyleType;
+
+              switch (styleType){
+                case 1:
+                  list.class = 'pay-card-1';
+                  break;
+                case 2:
+                  list.class = 'pay-card-1-2';
+                  break;
+              }
+
+              if(this.datas[i].type == "freeCouponCard"){          
+                list.coupons = c.freeCoupons;
+                if(list.title == ''){list.title=c.freeCoupons[0].title}
+                if(list.cardId == ''){list.cardId=c.freeCoupons[0].cardId}
+              }else{
+                list.coupons = c.chargeCoupons;
+                if(list.title == ''){list.title=c.chargeCoupons[0].title}
+                if(list.cardId == ''){list.cardId=c.chargeCoupons[0].cardId}
+              }
+
+              let ids = this.datas[i].type == "freeCouponCard" ? arr1 : arr;
+              let id = parseInt(list.cardId);
+              if (ids.indexOf(id) == -1) {
+                if (this.datas[i].Items[k].list.length == 1) {
+                  this.datas[i].Items.splice(k--, 1);
+                } else {
+                  this.datas[i].Items[k].list.splice(j--, 1);
+                }
+              }
+            }
+          }
+        }
+      }
     },
     // 深克隆数组
     clone(obj, target) {
@@ -1778,15 +1774,14 @@ export default {
       let obj = {};
       if (item == "member") {
         obj = {
-          imageUrl: "http://www.xiaoairenbase.cn/likongkong/head.jpg",
+          imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554270278615.png',
           type: "member"
         };
       } else if (item == "banner") {
         obj = {
           list: [
             {
-              imageUrl:
-                "https://pos.weifrom.com/static/common/images/micro/banner/b_01.jpg",
+              imageUrl:'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
               openType: "webview"
             }
           ],
@@ -1797,8 +1792,7 @@ export default {
         obj = {
           list: [
             {
-              imageUrl:
-                "https://pos.weifrom.com/static/common/images/micro/default/5_01.jpg",
+              imageUrl:'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
               name: "环境图"
             }
           ],
@@ -1813,7 +1807,7 @@ export default {
               title: "会员支付",
               // type: 0,
               subTitle: "快速扫码支付",
-              imageUrl: require("../assets/home1.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271496105.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOpera…ode.in?memberId=1292541&merchantNo=EW_N2167194458",
               openType: "webview"
@@ -1823,7 +1817,7 @@ export default {
               title: "会员充值",
               // type: 1,
               subTitle: "充值有优惠哦",
-              imageUrl: require("../assets/home2.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271522556.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopCashierMicr…rge.in?merchantNo=EW_N2167194458&memberId=1292541",
               openType: "webview"
@@ -1833,7 +1827,7 @@ export default {
               title: "消费记录",
               // type: 3,
               subTitle: "消费明细查看",
-              imageUrl: require("../assets/home4.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271553808.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/memberSaleOrderList.in?memberId=1292541",
               openType: "webview"
@@ -1843,7 +1837,7 @@ export default {
               title: "充值记录",
               // type: 2,
               subTitle: "充值明细查看",
-              imageUrl: require("../assets/home3.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271537554.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/memberRechargeList.in?memberId=1292541",
               openType: "webview"
@@ -1853,7 +1847,7 @@ export default {
               title: "积分记录",
               // type: 4,
               subTitle: "积分明细查看",
-              imageUrl: require("../assets/home7.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271781393.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/integralRecordList.in?memberId=1292541",
               openType: "webview"
@@ -1863,7 +1857,7 @@ export default {
               title: "积分商城",
               // type: 5,
               subTitle: "优享好礼兑换",
-              imageUrl: require("../assets/home6.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271807517.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/pointMall.in?memberId=1292541",
               openType: "webview"
@@ -1873,7 +1867,7 @@ export default {
               title: "推荐给朋友",
               // type: 7,
               subTitle: "",
-              imageUrl: require("../assets/home5.png"),
+              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271750989.png',
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOpera…&inviteMemberId=1292541&merchantNo=EW_N2167194458",
               openType: "webview"
@@ -1888,7 +1882,6 @@ export default {
           Items: [
             {
               couponAddStyleType: 1,
-              // couponPayType: 1,
               markSwitchVal: false,
               markVal: 1,
               title: "优惠卡券",
@@ -1896,13 +1889,17 @@ export default {
                 {
                   couponStyleType: 1,
                   couponPayType: 1,
-                  title: " ",
-                  id: "",
+                  title: "请选择",
+                  cardId: "",
                   type: "礼品兑换券",
+                  class:'',
                   description: "本优惠券不可兑换现金，不可找零。",
                   url:
-                    "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
-                  coupons: item == "freeCoupons"? this.coupons.freeCoupons:this.coupons.chargeCoupons
+                    'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
+                  coupons:
+                    item == "freeCoupons"
+                      ? this.coupons.freeCoupons
+                      : this.coupons.chargeCoupons
                 }
               ]
             }
@@ -1928,7 +1925,7 @@ export default {
           brandName: "莲托夫",
           brandLogo: "",
           brandCover:
-            "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
+            'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
           brandInfo:
             "北京联拓天际电子商务有限公司于2007-06-04在丰台分局登记成立。法定代表人陈霄毅，公司经营范围包括公共软件服务；网页设计；计算机系统服务；电脑动画设计等。",
           brandEstablishedTime: "",
@@ -1937,18 +1934,29 @@ export default {
         };
       }
       this.datas.push(obj);
+      this.currentKey = this.datas.length-1;
+      this.currentType = item;
+      this.scrollToBottom();
     },
 
+    // 页面滚动置底部
+    scrollToBottom: function () {
+        this.$nextTick(() => {
+          var container = this.$el.querySelector("#content");
+          document.scrollingElement.scrollTop=container.scrollHeight
+        });
+    },
     // 停止拖动模块
     datadragEnd() {
+      // console.log(this.currentKey)
       this.currentKey = null;
       this.currentType = "pageSetting";
       this.initSwiper();
     },
-    
     //模块编辑
     fnModuleEdit(item, key) {
       this.currentKey = key;
+      console.log(key)
       if (item == "pageSetting" || item == "tabBar") {
         this.currentType = item;
       } else {
@@ -1984,17 +1992,12 @@ export default {
         reader.onload = e => {
           // 图片base64化
           var newUrl = e.target.result;
-          let data = {
-            imgDate: newUrl,
-            fileName: this.getRandom(10) + ".jpg"
-          };
-          // this.api.uploadImg(data).then(rs => {
-          //   if (rs.returnCode === 'F') {
-
-          //   } else {
-          //     console.log(rs)
-          //   }
-          // })
+          let formData = new FormData();  
+          formData.append('imgDate',newUrl); 
+          formData.append('fileName',this.getRandom(10) + ".jpg"); 
+          this.api.uploadImg(formData).then(rs => {
+            newUrl = rs.data.result.url
+          });
           if (_this.type == "BANNER_ADD") {
             //添加轮播图
             let obj = {
@@ -2045,7 +2048,7 @@ export default {
     },
     // 添加底部导航模块
     fnTabBar() {
-      if (this.footer.list.length == 2) {
+      if (this.until.datas.footer.list.length == 2) {
         this.$message({
           showClose: true,
           message: "底部导航最多添加两个！"
@@ -2054,7 +2057,7 @@ export default {
         let obj = {
           name: "会员首页"
         };
-        this.footer.list.push(obj);
+        this.until.datas.footer.list.push(obj);
       }
     },
     //添加功能列表子元素模块
@@ -2063,7 +2066,7 @@ export default {
         row: 1,
         title: "标题",
         subTitle: "我是描述",
-        imageUrl: require("../assets/home1.png"),
+        imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271496105.png',
         openType: "webview"
       };
       this.datas[this.currentKey].list.push(obj);
@@ -2084,7 +2087,7 @@ export default {
     },
     //添加优惠券列表模块
     fnCouponList() {
-      console.log( this.datas[this.currentKey].type)
+      console.log(this.datas[this.currentKey].type);
       let obj = {
         couponAddStyleType: 1,
         markSwitchVal: false,
@@ -2093,13 +2096,16 @@ export default {
         list: [
           {
             couponStyleType: 1,
-            title: '',
+            title: "",
             id: "",
             type: "礼品兑换券",
             description: "本优惠券不可兑换现金，不可找零。",
             url:
-              "https://pos.weifrom.com/static/common/images/micro/default/2_01.jpg",
-            coupons: this.datas[this.currentKey].type == "freeCouponCard"? this.coupons.freeCoupons:this.coupons.chargeCoupons
+              "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
+            coupons:
+              this.datas[this.currentKey].type == "freeCouponCard"
+                ? this.coupons.freeCoupons
+                : this.coupons.chargeCoupons
           }
         ]
       };
@@ -2130,7 +2136,7 @@ export default {
     },
 
     fnScrollEditPositon(i, k) {
-      console.log(i, k);
+      // console.log(i, k);
     },
     // 删除 center内容 模块
     fnModuleDel() {
@@ -2151,13 +2157,13 @@ export default {
           list.splice(ind, 1);
         }
       } else if (item == "tabBar") {
-        if (this.footer.list.length == 1) {
+        if (this.until.datas.footer.list.length == 1) {
           this.$message({
             showClose: true,
             message: "至少要保留1个哦！"
           });
         } else {
-          this.footer.list.splice(ind, 1);
+          this.until.datas.footer.list.splice(ind, 1);
         }
       } else {
         this.datas[this.currentKey].list.splice(ind, 1);
@@ -2179,20 +2185,41 @@ export default {
     fnUploadFileDel(e) {
       this.datas[this.currentKey].list[e.index].imageUrl = "";
     },
+    // 鼠标滑入模块
+    addClassload(index){
+      this.classenable=true
+      this.current=index;
+    },
+    // 鼠标滑出模块
+    removeClassload(index){
+      this.classenable=false
+      this.current=index;
+    },  
     //保存
     fnSubmit() {
       let ids = [];
       for (let i = 0; i < this.datas.length; i++) {
-        if (this.datas[i].type == "freeCouponCard" || this.datas[i].type == "chargeCouponsCard") {
+        if (
+          this.datas[i].type == "freeCouponCard" ||
+          this.datas[i].type == "chargeCouponsCard"
+        ) {
           for (let k = 0; k < this.datas[i].Items.length; k++) {
             for (let j = 0; j < this.datas[i].Items[k].list.length; j++) {
-              ids.push(parseInt(this.datas[i].Items[k].list[j].id))
+              ids.push(parseInt(this.datas[i].Items[k].list[j].id));
             }
           }
         }
       }
-      console.log(until.datas);
-      console.log(ids);
+      until.datas.ids = ids;
+      console.log(JSON.stringify(until.datas));
+      
+      let formData = new FormData();  
+          formData.append('merchantCode','EW_N6186504029'); 
+          formData.append('config',JSON.stringify(until.datas)); 
+      this.api.clubMarketAppUpdate(formData).then(res=>{
+        console.log(res)
+      })
+      
     }
   }
 };

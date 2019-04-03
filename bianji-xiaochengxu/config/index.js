@@ -9,14 +9,14 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/api/': {
-      target: 'http://open.liantuobank.cn',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api/': ''
-      }
-    }},
+    // proxyTable: {
+    //   '/api/': {
+    //   target: 'http://wdtest.liantuo.com',
+    //   changeOrigin: true,
+    //   pathRewrite: {
+    //     '^/api/': '/api'
+    //   }
+    // }},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -55,7 +55,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
