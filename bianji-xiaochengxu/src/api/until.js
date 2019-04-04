@@ -109,10 +109,11 @@ const datas = {
             {
               couponStyleType: 1,
               title: '',
-              cardId: '',
-              type: "礼品兑换券",
-              class:'',
-              description: "本优惠券不可兑换现金，不可找零。",
+              cardId: '4602',
+              type: "",
+              class:'pay-card-1',
+              description: "",
+              index:'',
               url:
                 'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
               coupons: [
@@ -137,10 +138,14 @@ const datas = {
             {
               couponStyleType: 1,
               title: '',
-              cardId: '',
-              type: "礼品兑换券",
-              class:'',
-              description: "本优惠券不可兑换现金，不可找零。",
+              cardId: '4362',
+              type: "",
+              class:'pay-card-1',
+              payPrice:'',
+              originalPrice:'',
+              discountsPrice:'',
+              index:'',
+              description: "",
               url:
                 'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
               coupons: [

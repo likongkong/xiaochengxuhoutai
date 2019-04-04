@@ -313,6 +313,8 @@ label.brand-checkbox > input:disabled + span, label.brand-radio > input:disabled
 .coupons{padding-bottom: 10px;overflow: hidden;}
 .coupons>div{display: inline-block;}
 .coupons-card {background: #FFFFFF;box-shadow: 0 4px 5px 0 #F1F1F1;border-radius: 2px;overflow: hidden; margin-bottom: 10px;}
+.coupons-lines{width: 100%;height: 100%;background: #00e0ae;display: flex;align-items: center}
+.coupons-lines span{width: 100%; text-align: center;;font-size: 24px;color: #fff;display: inline-block;}
 .free-card-1  { width: 100%; height: 114px; }
 .free-card-1 .coupons-img {width: 114px;height: 114px;overflow: hidden;float: left;}
 .free-card-1 .coupons-img img{width: 100%;height: 100%;}
