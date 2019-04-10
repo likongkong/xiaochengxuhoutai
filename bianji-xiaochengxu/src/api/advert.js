@@ -1,9 +1,11 @@
-import {ajax} from './api';
+import api from './api';
+
 
 const apiList =  {
-  uploadImg: (params) => ajax.post(`/api/uploadImg.htm`,params),
+  uploadImg: (params) => api.post(`/api/uploadImg.htm`,params),
   // clubMarketApp: (params) =>  ajax.post(`/api/clubMarketApp.htm`,params),
-  clubMarketApp: (params) =>  ajax.post(`/api/clubMarketApp.htm?json=${JSON.stringify(params)}`,{}),
-  clubMarketAppUpdate: (params) =>  ajax.post(`/api/clubMarketAppUpdate.htm?json=${JSON.stringify(params)}`,{}),
+  clubMarketApp: (params) =>  api.post(`/api/clubMarketApp.htm?json=${JSON.stringify(params)}`,{}),
+  clubMarketAppUpdate: (params) =>  api.post(`/api/clubMarketAppUpdate.htm`,params),
+  wechatAppMerchantCode: (params) =>  api.post(`/wechatAppMerchantCode.htm`,{}),
 }
 export default apiList;

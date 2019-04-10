@@ -95,66 +95,7 @@ const datas = {
         }
       ]
     },
-    {
-      type: "freeCouponCard",
-      style: "across",
-      couponTabbarKey: 0,
-      Items: [
-        {
-          couponAddStyleType: 1,
-          markSwitchVal: false,
-          markVal: 1,
-          title: "免费卡券1",
-          list: [
-            {
-              couponStyleType: 1,
-              title: '',
-              cardId: '4602',
-              type: "",
-              class:'pay-card-1',
-              description: "",
-              index:'',
-              url:
-                'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
-              coupons: [
-                // { "cardId": 4839, "title": "全品类" }, { "cardId": 4602, "title": "10元代金券" }, { "cardId": 4311, "title": "3折优惠券" }, { "cardId": 4310, "title": "1元代金券" }, { "cardId": 4309, "title": "中秋大礼包兑换券" }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      type: "chargeCouponsCard",
-      style: "across",
-      couponTabbarKey: 0,
-      Items: [
-        {
-          couponAddStyleType: 1,
-          markSwitchVal: false,
-          markVal: 1,
-          title: "付费卡券1",
-          list: [
-            {
-              couponStyleType: 1,
-              title: '',
-              cardId: '4362',
-              type: "",
-              class:'pay-card-1',
-              payPrice:'',
-              originalPrice:'',
-              discountsPrice:'',
-              index:'',
-              description: "",
-              url:
-                'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
-              coupons: [
-              ]
-            }
-          ]
-        }
-      ]
-    }
+   
   ]
 }
 

@@ -3,19 +3,28 @@
   <div id="js_mxVue">
     <div class="mx-page-header decorate-header-fixed">
       <h1 class="mx-page-title">
-          <span>编辑小程序</span> <span> </span> <span></span>
-          <div class="pull-right">
-            <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE')">保存</button>
-          </div>
+        <span>编辑小程序</span>
+        <span></span>
+        <span></span>
+        <div class="pull-right">
+          <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE')">保存</button>
+        </div>
       </h1>
-      <div class="mx-page-explain text-ellipsis">当前状态：
-        <span title="点击查看详情" id="js_statusTxt" class="cursor-pointer" style="color: rgb(76, 174, 76);">品牌未绑定小程序</span>
-      </div>
+      <!-- <div class="mx-page-explain text-ellipsis">
+        当前状态：
+        <span
+          title="点击查看详情"
+          id="js_statusTxt"
+          class="cursor-pointer"
+          style="color: rgb(76, 174, 76);"
+          v-if="coupons.appStatus==false"
+        >品牌未绑定小程序</span>
+        <span v-else>品牌已绑定小程序</span>
+      </div> -->
       <div class="pull-right" style=" position: fixed;top: 0;right: 0;z-index:100;">
         <!-- <button type="button" class="btn btn-primary btn-sm" @click="fnSubmit('SAVE');">保存</button> -->
       </div>
     </div>
-    
 
     <div class="decorate-content" id="content">
       <!-- left  内容 -->
@@ -191,8 +200,17 @@
 
       <!-- center 内容 -->
       <div class="decorate-center-group">
-        <div class="center-topbar" > <img style="width:100%" src="http://club.liantuobank.com/imgPath/club-open/1554278245739.png" alt=""> </div>
-        <div class="center-title decorate-module-preview-group" @click="fnModuleEdit('pageSetting')">{{until.datas.setting.title}}</div>
+        <div class="center-topbar">
+          <img
+            style="width:100%"
+            src="http://club.liantuobank.com/imgPath/club-open/1554278245739.png"
+            alt
+          >
+        </div>
+        <div
+          class="center-title decorate-module-preview-group"
+          @click="fnModuleEdit('pageSetting')"
+        >{{until.datas.setting.title}}</div>
         <div class="decorate-center-main">
           <draggable v-model="datas" @update="datadragEnd" :options="{animation: 200}">
             <div v-for="(item,key) in datas" :key="key">
@@ -200,7 +218,9 @@
               <div v-if="item.type == 'member'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group hide-swiper-pagination"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -214,7 +234,9 @@
               <div v-if="item.type == 'banner'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group hide-swiper-pagination"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -255,7 +277,9 @@
               <div v-else-if="item.type == 'shopPic'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -279,7 +303,9 @@
               <div v-else-if="item.type == 'btnMenu'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -315,7 +341,9 @@
               <div v-else-if="item.type == 'brandIntro'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-brand-preview-group"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -331,7 +359,10 @@
                     </div>
                     <div class="brand-intro-group">
                       <div class="bi-box">
-                        <img src="http://club.liantuobank.com/imgPath/club-open/1554278228054.png" class="bi-hu">
+                        <img
+                          src="http://club.liantuobank.com/imgPath/club-open/1554278228054.png"
+                          class="bi-hu"
+                        >
                         <div class="bi-info">{{item.brandInfo}}</div>
                         <ul class="bi-list">
                           <li class="bi-li">
@@ -357,7 +388,9 @@
               <div v-else-if="item.type == 'shopIntro'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-info-preview-group"
-                   @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -392,7 +425,9 @@
               <div v-else-if="item.type == 'freeCouponCard'" @click="fnModuleEdit(item,key)">
                 <div
                   class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
-                  @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
                 >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
@@ -415,41 +450,78 @@
                       <div v-for="(item2,key) in item1.list">
                         <div class="free-card-1 coupons-card">
                           <div class="coupons-img">
-                            <!-- <div v-if="!item2.coupons[item2.index].bgImg"> 
-                                <div class='coupons-img coupons-red ' v-if="item2.coupons[item2.index].type == 0">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].reduceCost}}元</span></div>
+                            <div v-if="!item2.couponInfo.bgImg">
+                              <div
+                                class="coupons-img coupons-red"
+                                v-if="item2.couponInfo.type == 0"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
                                 </div>
+                              </div>
 
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 1">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].discount}}折</span></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 1"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
                                 </div>
+                              </div>
 
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 2">
-                                  <div class='coupons-lines ico-jifen-s '></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 2"
+                              >
+                                <div class="coupons-lines ico-jifen-s"></div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 3"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
                                 </div>
+                              </div>
 
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 3">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].reduceCost}}元</span></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 5"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
                                 </div>
+                              </div>
 
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 5">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].reduceCost}}元</span></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 7"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
                                 </div>
+                              </div>
 
-
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 7">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].discount}}折</span></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 8"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.specialPrice}}元</span>
                                 </div>
+                              </div>
 
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 8">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].specialPrice}}元</span></div>
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 9"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
                                 </div>
-
-                                <div class='coupons-img coupons-red ' v-else-if="item2.coupons[item2.index].type == 9">
-                                  <div class='coupons-lines '><span>{{item2.coupons[item2.index].reduceCost}}元</span></div>
-                                </div>
-                            </div> -->
-                            <img :src="item2.url">
+                              </div>
+                            </div>
+                            <img v-else :src="item2.couponInfo.bgImg">
                           </div>
                           <div class="coupons-info">
                             <div class="coupons-info-b">
@@ -477,7 +549,78 @@
                       <div v-for="(item2,key) in item1.list">
                         <div class="free-card-1 coupons-card">
                           <div class="coupons-img">
-                            <img :src="item2.url">
+                            <div v-if="!item2.couponInfo.bgImg">
+                              <div
+                                class="coupons-img coupons-red"
+                                v-if="item2.couponInfo.type == 0"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 1"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 2"
+                              >
+                                <div class="coupons-lines ico-jifen-s"></div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 3"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 5"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 7"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 8"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.specialPrice}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 9"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+                            </div>
+                            <img v-else :src="item2.couponInfo.bgImg">
                           </div>
                           <div class="coupons-info">
                             <div class="coupons-info-b">
@@ -500,7 +643,11 @@
               <!-- 付费优惠券 -->
               <div v-else-if="item.type == 'chargeCouponsCard'" @click="fnModuleEdit(item,key)">
                 <div
-                  class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group" @mouseover="addClassload(key)" @mouseout="removeClassload(key)" :class="{ active:classenable&&key==current||currentKey==key}">
+                  class="decorate-module-preview-group decorate-micro-group decorate-shop-pic-preview-group"
+                  @mouseover="addClassload(key)"
+                  @mouseout="removeClassload(key)"
+                  :class="{ active:classenable&&key==current||currentKey==key}"
+                >
                   <div title="按住鼠标，可拖动排序模块" class="preview-drag">
                     <i class="fa fa-arrows"></i>
                   </div>
@@ -520,27 +667,109 @@
                       :class="key == item.couponTabbarKey ?'':'hide'"
                     >
                       <div v-for="(item2,key) in item1.list">
-
                         <div class="coupons-card" :class="item2.class">
                           <div class="coupons-img">
                             <!-- <span>新品</span> -->
-                            <img :src="item2.url">
+                            <div v-if="!item2.couponInfo.bgImg">
+                              <div
+                                class="coupons-img coupons-red"
+                                v-if="item2.couponInfo.type == 0"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 1"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 2"
+                              >
+                                <div class="coupons-lines ico-jifen-s"></div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 3"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 5"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 7"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 8"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.specialPrice}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 9"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+                            </div>
+                            <img v-else :src="item2.couponInfo.bgImg">
                           </div>
                           <div class="coupons-info">
                             <div class="coupons-title">{{item2.title}}</div>
                             <div class="coupons-info-b">
                               <div class="coupons-price">
                                 <p>
-                                  <b>￥</b>{{item2.payPrice}}
+                                  <b>￥</b>
+                                  {{item2.payPrice}}
                                   <span v-if="item2.discountsPrice > 0">
-                                    <img src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"> 优惠{{item2.discountsPrice}}元
+                                    <img
+                                      src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"
+                                    >
+                                    优惠{{item2.discountsPrice}}元
                                   </span>
                                 </p>
                                 <span class="coupons-get">购 买</span>
                               </div>
-                              <div class="coupons-buy-num" v-if="item2.originalPrice > 0 && (item2.receiveCnt && item2.receiveCnt>0)">
-                                <span v-if="item2.originalPrice > 0" style="text-decoration:line-through">￥{{item2.originalPrice}}</span>
-                                <span v-if="item2.receiveCnt && item2.receiveCnt>0">{{item2.receiveCnt}}人购买</span>
+                              <div
+                                class="coupons-buy-num"
+                                v-if="item2.originalPrice > 0 && (item2.receiveCnt && item2.receiveCnt>0)"
+                              >
+                                <span
+                                  v-if="item2.originalPrice > 0"
+                                  style="text-decoration:line-through"
+                                >￥{{item2.originalPrice}}</span>
+                                <span
+                                  v-if="item2.receiveCnt && item2.receiveCnt>0"
+                                >{{item2.receiveCnt}}人购买</span>
                               </div>
                             </div>
                           </div>
@@ -556,26 +785,109 @@
                     </h3>
                     <div class="coupons">
                       <div v-for="(item2,key) in item1.list">
-                        <div class=" coupons-card" :class="item2.class">
+                        <div class="coupons-card" :class="item2.class">
                           <div class="coupons-img">
                             <!-- <span>新品</span> -->
-                            <img :src="item2.url">
+                            <div v-if="!item2.couponInfo.bgImg">
+                              <div
+                                class="coupons-img coupons-red"
+                                v-if="item2.couponInfo.type == 0"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 1"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 2"
+                              >
+                                <div class="coupons-lines ico-jifen-s"></div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 3"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 5"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 7"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.discount}}折</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 8"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.specialPrice}}元</span>
+                                </div>
+                              </div>
+
+                              <div
+                                class="coupons-img coupons-red"
+                                v-else-if="item2.couponInfo.type == 9"
+                              >
+                                <div class="coupons-lines">
+                                  <span>{{item2.couponInfo.reduceCost}}元</span>
+                                </div>
+                              </div>
+                            </div>
+                            <img v-else :src="item2.couponInfo.bgImg">
                           </div>
                           <div class="coupons-info">
                             <div class="coupons-title">{{item2.title}}</div>
                             <div class="coupons-info-b">
                               <div class="coupons-price">
                                 <p>
-                                  <b>￥</b>{{item2.payPrice}}
+                                  <b>￥</b>
+                                  {{item2.payPrice}}
                                   <span v-if="item2.discountsPrice > 0">
-                                    <img src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"> 优惠{{item2.discountsPrice}}元
+                                    <img
+                                      src="http://club.liantuobank.com/imgPath/club-open/1554278187482.png"
+                                    >
+                                    优惠{{item2.discountsPrice}}元
                                   </span>
                                 </p>
                                 <span class="coupons-get">购 买</span>
                               </div>
-                              <div class="coupons-buy-num" v-if="item2.originalPrice > 0 && (item2.receiveCnt && item2.receiveCnt>0)">
-                                <span  v-if="item2.originalPrice > 0" style="text-decoration:line-through">￥{{item2.originalPrice}}</span>
-                                <span v-if="item2.receiveCnt&& item2.receiveCnt>0">{{item2.receiveCnt}}人购买</span>
+                              <div
+                                class="coupons-buy-num"
+                                v-if="item2.originalPrice > 0 && (item2.receiveCnt && item2.receiveCnt>0)"
+                              >
+                                <span
+                                  v-if="item2.originalPrice > 0"
+                                  style="text-decoration:line-through"
+                                >￥{{item2.originalPrice}}</span>
+                                <span
+                                  v-if="item2.receiveCnt&& item2.receiveCnt>0"
+                                >{{item2.receiveCnt}}人购买</span>
                               </div>
                             </div>
                           </div>
@@ -592,6 +904,7 @@
           class="decorate-module-preview-group"
           style="wdith:100%;height:40px;font-size:12px; display: flex;justify-content: center;align-items: center;background:#fff;"
           v-if="until.datas.setting.supportSwitchVal"
+          @click="fnModuleEdit('pageSetting')"
         >
           <span>{{until.datas.setting.supportVal}}</span>提供技术支持
         </div>
@@ -602,7 +915,11 @@
             <h5 class="df-title" :style="key == 0?'color:#0ddfbd;':''">{{item.name}}</h5>
           </div>
           <div class="df-item">
-            <img src="http://club.liantuobank.com/imgPath/club-open/1554278110086.png" alt class="df-icon">
+            <img
+              src="http://club.liantuobank.com/imgPath/club-open/1554278110086.png"
+              alt
+              class="df-icon"
+            >
             <h5 class="df-title">会员</h5>
           </div>
         </div>
@@ -610,7 +927,7 @@
 
       <!-- right  内容 -->
       <!-- 页面设置 -->
-      <div class="decorate-aside-group  aside-right" v-if="currentType == 'pageSetting'">
+      <div class="decorate-aside-group aside-right" v-if="currentType == 'pageSetting'">
         <div class="decorate-aside-header">
           <h3 class="aside-title">页面设置</h3>
         </div>
@@ -618,7 +935,12 @@
           <div class="decorate-form-group">
             <label class="dfg-label">页面标题：</label>
             <div class="dfg-control-box">
-              <input type="text" class="form-control" maxlength="10" v-model.trim="until.datas.setting.title">
+              <input
+                type="text"
+                class="form-control"
+                maxlength="10"
+                v-model.trim="until.datas.setting.title"
+              >
             </div>
           </div>
 
@@ -1474,11 +1796,21 @@
                 <div class="dfg-control-box">
                   <div style="height: 34px; line-height: 34px;">
                     <label class="radio-inline brand-radio">
-                      <input type="radio" value="1" data-class='pay-card-1' v-model="item.couponAddStyleType">
+                      <input
+                        type="radio"
+                        value="1"
+                        data-class="pay-card-1"
+                        v-model="item.couponAddStyleType"
+                      >
                       <span>单行单列</span>
                     </label>
                     <label class="radio-inline brand-radio">
-                      <input type="radio" value="2" data-class='pay-card-1-2' v-model="item.couponAddStyleType">
+                      <input
+                        type="radio"
+                        value="2"
+                        data-class="pay-card-1-2"
+                        v-model="item.couponAddStyleType"
+                      >
                       <span>一行两个</span>
                     </label>
                   </div>
@@ -1625,6 +1957,7 @@ import Swiper from "swiper";
 import draggable from "vuedraggable";
 import advert from "../api/advert.js";
 import until from "../api/until.js";
+import qs from "qs";
 
 export default {
   components: {
@@ -1638,35 +1971,66 @@ export default {
       currentType: "pageSetting",
       currentKey: null,
       clData: "",
-      coupons: {"appStatus":true,"freeCoupons":[{"cardId":4839,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv8o59D7EP4rCDtS5wUwti2M","title":"全品类","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#cc463d","bgImg":"http://open.liantuobank.cn/imgPath/club-open/1552277778584.jpg","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":3,"receiveUser":1,"giveFriend":0,"cardCodeMode":0,"reduceCost":15.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false,"exchangePoint":1000},{"cardId":4602,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv0eFx3xjp0pp8ldhq6aoDxQ","title":"10元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":6,"receiveCnt":43,"receiveUser":3,"giveFriend":0,"cardCodeMode":0,"reduceCost":10.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4311,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvw7QDSyyPhgpaSNkfzCid_0","title":"3折优惠券","subTitle":"请到店后使用","type":1,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":16,"receiveCnt":247,"receiveUser":31,"giveFriend":0,"cardCodeMode":0,"leastCost":0.0,"discount":3.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false,"exchangePoint":2},{"cardId":4310,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvzrMHhnKk-Vgn6GsPrmUIPE","title":"1元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":9,"receiveCnt":39,"receiveUser":30,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4309,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv-7kRzjafCXm1jkiJeESxI8","title":"中秋大礼包兑换券","subTitle":"请到店后使用","type":2,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":2,"receiveCnt":363,"receiveUser":31,"giveFriend":0,"cardCodeMode":0,"leastCost":0.0,"gift":"中秋大礼包","payType":"W,A,M","payPrice":0.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false}],"chargeCoupons":[{"cardId":4420,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv8l-_ZErIeuBE-furp-wxj8","title":"1.11元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115374,10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":4,"receiveUser":2,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.11,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":1.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4418,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvvzSrOChbDfGebgR6gdK4xOU","title":"11.01元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1541484351031.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":0,"receiveCnt":0,"receiveUser":0,"giveFriend":0,"cardCodeMode":0,"reduceCost":11.01,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":0.01,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false},{"cardId":4362,"merchantId":10115079,"merchantCode":"EW_N6186504029","superMerchantId":10115079,"superMerchantCode":"EW_N6186504029","merchantName":"营销测试账号李爽","brandName":"营销测试账号李爽","wechatCardId":"pHucvv4ZH6GThDzFw1CBODAZkBwE","title":"1元代金券","subTitle":"请到店后使用","type":0,"status":0,"quantity":100000000,"notice":"结账时自动使用，无需出示","description":"本优惠券不可兑换现金，不可找零。","servicePhone":"","coverAbstract":"","logo":"http://open.liantuobank.cn/imgPath/club-open/1538276981464.png","color":"#5885cf","bgImg":"","coverImg":"","cardTextImages":[],"dateType":2,"fixedTerm":30,"delayType":"BYDAY","delayInfo":"0","forbiddenTimes":"","cardTimes":[],"suitShops":"10115151,10115080","getLimit":100000000,"getDayLimit":100000000,"useDayLimit":100000000,"usedCnt":1,"receiveCnt":4,"receiveUser":2,"giveFriend":0,"cardCodeMode":0,"reduceCost":1.0,"leastCost":0.0,"gift":"","payType":"W,A,M","payPrice":1.0,"originalPrice":0.0,"memberPrice":0.0,"buyType":"W,A","receive":false}],"appVo":{"id":3,"merchantCode":"EW_N6186504029","superMerchantCode":"EW_N6186504029","config":""},"returnCode":"S","returnMessage":"成功"},
-      current:0,
-      classenable:false,
-      couponType: ['全场代金券', '全场折扣券', '礼品兑换券', '优惠券', '团购券', '单品代金券', '会员卡', '单品折扣券', '单品特价券', '全场满减券'],
+      coupons: {},
+      current: 0,
+      classenable: false,
+      couponType: [
+        "全场代金券",
+        "全场折扣券",
+        "礼品兑换券",
+        "优惠券",
+        "团购券",
+        "单品代金券",
+        "会员卡",
+        "单品折扣券",
+        "单品特价券",
+        "全场满减券"
+      ]
     };
   },
- 
+
   created() {
-    let c =  {};
+    let c = {};
     console.log("api::", this.api);
-      this.datas = this.until.datas.contents
-      // this.coupons = this.data
-      this.resetCoupons(this.coupons)
-      
-    // this.api.clubMarketApp({"merchantCode":"EW_N6186504029"}).then(res=>{
-    //   let config = res.data.appVo.config;
-    //   this.datas = config == ""?this.until.datas.contents:config;
-    //   // console.log(this.datas)
-    //   console.log(res.data)
-    //   this.coupons = res.data
-    //   for(let k in this.datas){
-    //     if(this.datas[k].type == 'freeCouponCard' || this.datas[k].type == 'chargeCouponsCard'){this.deleteCoupons(this.coupons);}
-    //   }
-    // })
+    // this.datas = this.until.datas.contents;
+    // this.coupons = this.data
+    this.getMerchantCode();
+    // this.resetCoupons(this.coupons);
+
   },
   mounted() {
     this.initSwiper();
   },
   methods: {
+    //获取
+    getMerchantCode() {
+      this.api
+        .wechatAppMerchantCode({})
+        .then(res => {
+          this.merchantCode = res.data;
+          return res.data
+        })
+        .then(res => {
+          this.api
+            .clubMarketApp({ merchantCode: res })
+            .then(res => {
+              let appVo = res.data.appVo;
+              console.log(appVo)
+              console.log(JSON.stringify(appVo))
+              // console.log(JSON.parse(appVo.config))
+              this.datas = JSON.stringify(appVo) == "{}" ? this.until.datas.contents : JSON.parse(appVo.config);
+              this.coupons = res.data;
+              for (let k in this.datas) {
+                if (
+                  this.datas[k].type == "freeCouponCard" ||
+                  this.datas[k].type == "chargeCouponsCard"
+                ) {
+                  this.resetCoupons(this.coupons);
+                }
+              }
+            });
+        });
+    },
     //生成十位随机数
     getRandom(num) {
       var random = Math.floor(
@@ -1695,28 +2059,42 @@ export default {
             for (let j in this.datas[i].Items[k].list) {
               let list = this.datas[i].Items[k].list[j];
               let styleType = this.datas[i].Items[k].list[j].couponStyleType;
-              // let ind = this.settingChargeCouponsPrice(list.cardId,c,this.datas[i].type)
-              // list.coupons = this.datas[i].type == "freeCouponCard"?c.freeCoupons:c.chargeCoupons
-              // list.title= this.datas[i].type == "freeCouponCard"?c.freeCoupons[0].title:c.chargeCoupons[0].title
-              // list.cardId= this.datas[i].type == "freeCouponCard"?c.freeCoupons[0].cardId:c.chargeCoupons[0].cardId
-              // list.index = this.settingChargeCouponsPrice(list.cardId,c,this.datas[i].type,list);
-              // console.log(list.coupons)
 
-              if(this.datas[i].type == "freeCouponCard"){          
-                list.coupons = c.freeCoupons;
-                if(list.title == ''){list.title=c.freeCoupons[0].title}
-                if(list.cardId == ''){list.cardId=c.freeCoupons[0].cardId}
-                if(list.type == ''){list.type=c.freeCoupons[0].type}
-                if(list.description == ''){list.description=c.freeCoupons[0].description}
-                if(list.url == ''){list.url=c.freeCoupons[0].bgImg}
-              }else{
-                list.coupons = c.chargeCoupons;
-                if(list.title == ''){list.title=c.chargeCoupons[0].title}
-                if(list.cardId == ''){list.cardId=c.chargeCoupons[0].cardId}
-                if(list.payPrice == ''){list.payPrice=c.chargeCoupons[0].payPrice}
-                if(list.originalPrice == ''){list.originalPrice=c.chargeCoupons[0].originalPrice}
-                if(list.discountsPrice == ''){list.discountsPrice=c.chargeCoupons[0].discountsPrice}
-              }
+              // if (this.datas[i].type == "freeCouponCard") {
+              //   list.coupons = c.freeCoupons;
+              //   if (list.title == "") {
+              //     list.title = c.freeCoupons[0].title;
+              //   }
+              //   if (list.cardId == "") {
+              //     list.cardId = c.freeCoupons[0].cardId;
+              //   }
+              //   if (list.type == "") {
+              //     list.type = c.freeCoupons[0].type;
+              //   }
+              //   if (list.description == "") {
+              //     list.description = c.freeCoupons[0].description;
+              //   }
+              //   if (list.url == "") {
+              //     list.url = c.freeCoupons[0].bgImg;
+              //   }
+              // } else {
+              //   list.coupons = c.chargeCoupons;
+              //   if (list.title == "") {
+              //     list.title = c.chargeCoupons[0].title;
+              //   }
+              //   if (list.cardId == "") {
+              //     list.cardId = c.chargeCoupons[0].cardId;
+              //   }
+              //   if (list.payPrice == "") {
+              //     list.payPrice = c.chargeCoupons[0].payPrice;
+              //   }
+              //   if (list.originalPrice == "") {
+              //     list.originalPrice = c.chargeCoupons[0].originalPrice;
+              //   }
+              //   if (list.discountsPrice == "") {
+              //     list.discountsPrice = c.chargeCoupons[0].discountsPrice;
+              //   }
+              // }
 
               let ids = this.datas[i].type == "freeCouponCard" ? arr1 : arr;
               let id = parseInt(list.cardId);
@@ -1733,15 +2111,16 @@ export default {
       }
     },
     // 设置优惠券详细信息
-    settingChargeCouponsPrice(id,item,type){
+    settingChargeCouponsPrice(id, item, type) {
       let ind;
-      let Coupon = type == "freeCouponCard"?item.freeCoupons:item.chargeCoupons
-      if(id == ''){
-          ind = 0
-      }else{
-        for(let k in Coupon){
-          if(id == Coupon[k].cardId){
-            ind = k
+      let Coupon =
+        type == "freeCouponCard" ? item.freeCoupons : item.chargeCoupons;
+      if (id == "") {
+        ind = 0;
+      } else {
+        for (let k in Coupon) {
+          if (id == Coupon[k].cardId) {
+            ind = k;
           }
         }
       }
@@ -1779,14 +2158,16 @@ export default {
       let obj = {};
       if (item == "member") {
         obj = {
-          imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554270278615.png',
+          imageUrl:
+            "http://club.liantuobank.com/imgPath/club-open/1554270278615.png",
           type: "member"
         };
       } else if (item == "banner") {
         obj = {
           list: [
             {
-              imageUrl:'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
               openType: "webview"
             }
           ],
@@ -1797,7 +2178,8 @@ export default {
         obj = {
           list: [
             {
-              imageUrl:'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
               name: "环境图"
             }
           ],
@@ -1812,7 +2194,8 @@ export default {
               title: "会员支付",
               // type: 0,
               subTitle: "快速扫码支付",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271496105.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271496105.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOpera…ode.in?memberId=1292541&merchantNo=EW_N2167194458",
               openType: "webview"
@@ -1822,7 +2205,8 @@ export default {
               title: "会员充值",
               // type: 1,
               subTitle: "充值有优惠哦",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271522556.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271522556.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopCashierMicr…rge.in?merchantNo=EW_N2167194458&memberId=1292541",
               openType: "webview"
@@ -1832,7 +2216,8 @@ export default {
               title: "消费记录",
               // type: 3,
               subTitle: "消费明细查看",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271553808.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271553808.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/memberSaleOrderList.in?memberId=1292541",
               openType: "webview"
@@ -1842,7 +2227,8 @@ export default {
               title: "充值记录",
               // type: 2,
               subTitle: "充值明细查看",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271537554.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271537554.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/memberRechargeList.in?memberId=1292541",
               openType: "webview"
@@ -1852,7 +2238,8 @@ export default {
               title: "积分记录",
               // type: 4,
               subTitle: "积分明细查看",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271781393.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271781393.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/integralRecordList.in?memberId=1292541",
               openType: "webview"
@@ -1862,7 +2249,8 @@ export default {
               title: "积分商城",
               // type: 5,
               subTitle: "优享好礼兑换",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271807517.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271807517.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOperation/pointMall.in?memberId=1292541",
               openType: "webview"
@@ -1872,7 +2260,8 @@ export default {
               title: "推荐给朋友",
               // type: 7,
               subTitle: "",
-              imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271750989.png',
+              imageUrl:
+                "http://club.liantuobank.com/imgPath/club-open/1554271750989.png",
               url:
                 "https://wx.liantuo.com/ShopCashier/shopMemberOpera…&inviteMemberId=1292541&merchantNo=EW_N2167194458",
               openType: "webview"
@@ -1893,19 +2282,19 @@ export default {
               list: [
                 {
                   couponStyleType: 1,
-                  couponPayType: 1,
                   title: "请选择",
                   cardId: "",
                   type: "礼品兑换券",
-                  class:'pay-card-1',
-                  payPrice:'',
-                  originalPrice:'',
-                  discountsPrice:'',
-                  description: "本优惠券不可兑换现金，不可找零。",
+                  class: "pay-card-1",
+                  payPrice: "",
+                  originalPrice: "",
+                  discountsPrice: "",
+                  description: "",
+                  couponInfo: "",
                   url:
-                    'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
+                    "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
                   coupons:
-                    item == "freeCoupons"
+                    item == "freeCouponCard"
                       ? this.coupons.freeCoupons
                       : this.coupons.chargeCoupons
                 }
@@ -1933,7 +2322,7 @@ export default {
           brandName: "莲托夫",
           brandLogo: "",
           brandCover:
-            'http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg',
+            "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
           brandInfo:
             "北京联拓天际电子商务有限公司于2007-06-04在丰台分局登记成立。法定代表人陈霄毅，公司经营范围包括公共软件服务；网页设计；计算机系统服务；电脑动画设计等。",
           brandEstablishedTime: "",
@@ -1941,18 +2330,19 @@ export default {
           brandBusiness: "网页设计"
         };
       }
+      console.log(this.datas)
       this.datas.push(obj);
-      this.currentKey = this.datas.length-1;
+      this.currentKey = this.datas.length - 1;
       this.currentType = item;
       this.scrollToBottom();
     },
 
     // 页面滚动置底部
-    scrollToBottom: function () {
-        this.$nextTick(() => {
-          var container = this.$el.querySelector("#content");
-          document.scrollingElement.scrollTop=container.scrollHeight
-        });
+    scrollToBottom: function() {
+      this.$nextTick(() => {
+        var container = this.$el.querySelector("#content");
+        document.scrollingElement.scrollTop = container.scrollHeight;
+      });
     },
     // 停止拖动模块
     datadragEnd() {
@@ -1964,7 +2354,7 @@ export default {
     //模块编辑
     fnModuleEdit(item, key) {
       this.currentKey = key;
-      console.log(key)
+      console.log(key);
       if (item == "pageSetting" || item == "tabBar") {
         this.currentType = item;
       } else {
@@ -2000,11 +2390,11 @@ export default {
         reader.onload = e => {
           // 图片base64化
           var newUrl = e.target.result;
-          let formData = new FormData();  
-          formData.append('imgDate',newUrl); 
-          formData.append('fileName',this.getRandom(10) + ".jpg"); 
+          let formData = new FormData();
+          formData.append("imgDate", newUrl);
+          formData.append("fileName", this.getRandom(10) + ".jpg");
           this.api.uploadImg(formData).then(rs => {
-            newUrl = rs.data.result.url
+            newUrl = rs.data.result.url;
           });
           if (_this.type == "BANNER_ADD") {
             //添加轮播图
@@ -2074,31 +2464,26 @@ export default {
         row: 1,
         title: "标题",
         subTitle: "我是描述",
-        imageUrl: 'http://club.liantuobank.com/imgPath/club-open/1554271496105.png',
+        imageUrl:
+          "http://club.liantuobank.com/imgPath/club-open/1554271496105.png",
         openType: "webview"
       };
       this.datas[this.currentKey].list.push(obj);
     },
-   
-    //添加优惠券列表模块
-    fnCouponList() {
-      console.log(this.datas[this.currentKey].type);
+    //优惠券
+    addCoupon(Class){
+      let Classs = Class&&Class!=''?Class:'pay-card-1'
       let obj = {
-        couponAddStyleType: 1,
-        markSwitchVal: false,
-        markVal: 1,
-        title: "名称",
-        list: [
-          {
             couponStyleType: 1,
             title: null,
-            cardId: '',
+            cardId: "",
             type: "",
-            class:'pay-card-1',
-            payPrice:'',
-            originalPrice:'',
-            discountsPrice:'',
+            class: Classs,
+            payPrice: "",
+            originalPrice: "",
+            discountsPrice: "",
             description: "",
+            couponInfo: "",
             url:
               "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
             coupons:
@@ -2106,83 +2491,72 @@ export default {
                 ? this.coupons.freeCoupons
                 : this.coupons.chargeCoupons
           }
-        ]
+      return obj
+    },
+    //添加优惠券列表模块
+    fnCouponList() {
+      console.log(this.addCoupon());
+      let obj = {
+        couponAddStyleType: 1,
+        markSwitchVal: false,
+        markVal: 1,
+        title: "名称",
+        list: []
       };
+      obj.list.push(this.addCoupon());
       this.datas[this.currentKey].Items.push(obj);
     },
     //添加优惠券模块
     fnCoupon(e) {
       let item = this.datas[this.currentKey].Items;
-      let Class = this.settingCouponsStyle(parseInt(item[e.key].couponAddStyleType));
-      let obj = {
-        couponStyleType: '',
-        title: null,
-        cardId: '',
-        type: "",
-        class:Class,
-        payPrice:'',
-        originalPrice:'',
-        discountsPrice:'',
-        description: "",
-        url:
-          "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
-        coupons:
-          this.datas[this.currentKey].type == "freeCouponCard"
-            ? this.coupons.freeCoupons
-            : this.coupons.chargeCoupons
-      };
-      // for (let i = 0; i < item[e.key].list.length; i++) {
-      //   console.log(item[e.key].list[i]);
-      //   if (
-      //     item[e.key].couponAddStyleType == item[e.key].list[i].couponStyleType
-      //   ) {
-        // obj = this.clone(item[e.key].list[i]);
-        // obj.title = "";
-        obj.couponPayType = item[e.key].couponPayType;
-        obj.couponStyleType = item[e.key].couponAddStyleType;
-        item[e.key].list.push(obj);
-        // break;
-        // }
-      // }
+      let Class = this.settingCouponsStyle(
+        parseInt(item[e.key].couponAddStyleType)
+      );
+      let obj = this.addCoupon(Class);
+      obj.couponPayType = item[e.key].couponPayType;
+      obj.couponStyleType = item[e.key].couponAddStyleType;
+      item[e.key].list.push(obj);
     },
-     // 设置优惠券展示的样式
-    settingCouponsStyle(type){
-      let Class = '';
-      switch (type){
+    // 设置优惠券展示的样式
+    settingCouponsStyle(type) {
+      let Class = "";
+      switch (type) {
         case 1:
-          Class = 'pay-card-1';
+          Class = "pay-card-1";
           break;
         case 2:
-          Class = 'pay-card-1-2';
+          Class = "pay-card-1-2";
           break;
       }
       return Class;
     },
-     // 优惠券类型选择器
-    option_click_handler(item,bIndex, k, k1) {
+    // 优惠券类型选择器
+    option_click_handler(item, bIndex, k, k1) {
       let list = this.datas[this.currentKey].Items[bIndex].list[k];
-      console.log(list)
+      // console.log(list)
       //  for(let k in list.coupons){
       //   if (list.coupons[k].cardId == item.cardId) {
       //     list.index = k
       //     break;
       //   }
       // }
-      for (let i = 0; i < list.coupons.length; i++) {
+      for (let i in list.coupons) {
         if (list.coupons[i].cardId == item.cardId) {
+          console.log(list.coupons[i]);
           list.title = list.coupons[i].title;
           list.cardId = list.coupons[i].cardId;
-          list.type=list.coupons[i].type;
-          list.description=list.coupons[i].description;
-          // list.url=list.coupons[i].bgImg;
-          if(list.coupons[i].memberPrice>0){
+          list.type = list.coupons[i].type;
+          list.description = list.coupons[i].description;
+          list.couponInfo = list.coupons[i];
+          if (list.coupons[i].memberPrice > 0) {
             list.payPrice = list.coupons[i].memberPrice;
-            list.discountsPrice = list.coupons[i].payPrice - list.coupons[i].memberPrice;
-            list.originalPrice  = list.coupons[i].payPrice;
-          }else{
+            list.discountsPrice =
+              list.coupons[i].payPrice - list.coupons[i].memberPrice;
+            list.originalPrice = list.coupons[i].payPrice;
+          } else {
             list.payPrice = list.coupons[i].payPrice;
             list.discountsPrice = 0;
-            list.originalPrice  = list.coupons[i].originalPrice;
+            list.originalPrice = list.coupons[i].originalPrice;
           }
           break;
         }
@@ -2245,15 +2619,15 @@ export default {
       this.datas[this.currentKey].list[e.index].imageUrl = "";
     },
     // 鼠标滑入模块
-    addClassload(index){
-      this.classenable=true
-      this.current=index;
-    },
+    addClassload(index) {
+      this.classenable = true;
+      this.current = index;
+    },
     // 鼠标滑出模块
-    removeClassload(index){
-      this.classenable=false
-      this.current=index;
-    },  
+    removeClassload(index) {
+      this.classenable = false;
+      this.current = index;
+    },
     //保存
     fnSubmit() {
       let ids = [];
@@ -2270,15 +2644,17 @@ export default {
         }
       }
       until.datas.ids = ids;
-      console.log(JSON.stringify(until.datas));
+      // let formData = new FormData();
+      // formData.append("merchantCode", this.merchantCode);
+      // formData.append("config",JSON.stringify(until.datas));
+      let obj= {
+        merchantCode:this.merchantCode,
+        config: qs.stringify(until.datas)
+      }
       
-      let formData = new FormData();  
-          formData.append('merchantCode','EW_N6186504029'); 
-          formData.append('config',JSON.stringify(until.datas)); 
-      this.api.clubMarketAppUpdate(formData).then(res=>{
-        console.log(res)
-      })
-      
+      this.api.clubMarketAppUpdate({json:obj}).then(res => {
+        console.log(res);
+      });
     }
   }
 };
