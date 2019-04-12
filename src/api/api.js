@@ -1,8 +1,10 @@
 import axios from 'axios'
 import qs from 'qs'
+const domain = window.location.protocol+"//"+window.location.host
 const service = axios.create({
+  
  withCredentials: true,
- baseURL:'http://wdtest.liantuo.com',
+ baseURL:domain,
   // headers: {
   //   // 'X-Requested-With': 'XMLHttpRequest',
   //   'Content-Type':'application/x-www-form-urlencoded; charset=utf-8',
@@ -28,10 +30,10 @@ export default {
     return service({
       method: 'post',
       url,
-      data: qs.stringify(data),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
+      data: data
+      // headers: {
+      //   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      // }
     })
   }
 }

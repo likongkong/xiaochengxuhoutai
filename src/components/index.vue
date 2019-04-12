@@ -1,6 +1,12 @@
 <template>
   <!-- <div class="mx-iframe-body" style="min-width: 1030px;"> -->
-  <div id="js_mxVue">
+  <div v-if="pageloading">
+    <el-table
+    v-loading="loading"
+    class="pageloading">
+    </el-table>
+  </div>
+  <div id="js_mxVue" v-else>
     <div class="mx-page-header decorate-header-fixed">
       <h1 class="mx-page-title">
         <span>编辑小程序</span>
@@ -210,7 +216,7 @@
         <div
           class="center-title decorate-module-preview-group"
           @click="fnModuleEdit('pageSetting')"
-        >{{until.datas.setting.title}}</div>
+        >{{pageInfo.setting.title}}</div>
         <div class="decorate-center-main">
           <draggable v-model="datas" @update="datadragEnd" :options="{animation: 200}">
             <div v-for="(item,key) in datas" :key="key">
@@ -903,14 +909,14 @@
         <div
           class="decorate-module-preview-group"
           style="wdith:100%;height:40px;font-size:12px; display: flex;justify-content: center;align-items: center;background:#fff;"
-          v-if="until.datas.setting.supportSwitchVal"
+          v-if="pageInfo.setting.supportSwitchVal"
           @click="fnModuleEdit('pageSetting')"
         >
-          <span>{{until.datas.setting.supportVal}}</span>提供技术支持
+          <span>{{pageInfo.setting.supportVal}}</span>提供技术支持
         </div>
 
         <div class="decorate-footer decorate-module-preview-group" @click="fnModuleEdit('tabBar')">
-          <div class="df-item" v-for="(item,key) in until.datas.footer.list">
+          <div class="df-item" v-for="(item,key) in pageInfo.footer.list">
             <img :src="key == 0?item.selectedIconPath:item.iconPath" alt class="df-icon">
             <h5 class="df-title" :style="key == 0?'color:#0ddfbd;':''">{{item.name}}</h5>
           </div>
@@ -939,7 +945,7 @@
                 type="text"
                 class="form-control"
                 maxlength="10"
-                v-model.trim="until.datas.setting.title"
+                v-model.trim="pageInfo.setting.title"
               >
             </div>
           </div>
@@ -949,7 +955,7 @@
           >
             <span>底部展示</span>
             <el-switch
-              v-model="until.datas.setting.supportSwitchVal"
+              v-model="pageInfo.setting.supportSwitchVal"
               active-color="#1890ff"
               inactive-color="#999"
             ></el-switch>
@@ -965,7 +971,7 @@
                 type="text"
                 class="form-control"
                 maxlength="10"
-                v-model.trim="until.datas.setting.supportVal"
+                v-model.trim="pageInfo.setting.supportVal"
               >
               <span style="display:block;font-size: 12px;">提供技术支持</span>
             </div>
@@ -1485,7 +1491,7 @@
             <div class="dfg-control-box">
               <input
                 type="text"
-                maxlength="15"
+                maxlength="4"
                 class="form-control"
                 v-model.trim="datas[currentKey].brandAddress"
               >
@@ -1496,7 +1502,7 @@
             <div class="dfg-control-box">
               <input
                 type="text"
-                maxlength="15"
+                maxlength="8"
                 class="form-control"
                 v-model.trim="datas[currentKey].brandBusiness"
               >
@@ -1920,7 +1926,7 @@
             >添加导航</button>
           </div>
         </div>-->
-        <div v-for="(item,bIndex) in until.datas.footer.list">
+        <div v-for="(item,bIndex) in pageInfo.footer.list">
           <div class="decorate-edit-group decorate-edit-modult-group js_editItem">
             <div class="edit-box">
               <div title="删除" class="edit-control" @click="fnModuleItemDel(bIndex,currentType);">
@@ -1967,13 +1973,16 @@ export default {
     return {
       api: advert,
       until: until,
-      datas: [],
+      datas: until.datas.contents,
+      pageInfo:until.datas,
       currentType: "pageSetting",
       currentKey: null,
       clData: "",
       coupons: {},
       current: 0,
       classenable: false,
+      pageloading:true,
+      loading:true,
       couponType: [
         "全场代金券",
         "全场折扣券",
@@ -1990,12 +1999,13 @@ export default {
   },
 
   created() {
-    let c = {};
     console.log("api::", this.api);
-    // this.datas = this.until.datas.contents;
-    // this.coupons = this.data
-    this.getMerchantCode();
-    // this.resetCoupons(this.coupons);
+
+    // 线上运行
+    // this.getMerchantCode();
+    // 本地运行
+    this.pageInfo = this.until.datas;
+    this.datas = this.until.datas.contents ;
 
   },
   mounted() {
@@ -2015,11 +2025,10 @@ export default {
             .clubMarketApp({ merchantCode: res })
             .then(res => {
               let appVo = res.data.appVo;
-              console.log(appVo)
-              console.log(JSON.stringify(appVo))
-              // console.log(JSON.parse(appVo.config))
-              this.datas = JSON.stringify(appVo) == "{}" ? this.until.datas.contents : JSON.parse(appVo.config);
+              this.pageInfo =  JSON.parse(appVo.config);
+              this.datas = this.pageInfo.contents;
               this.coupons = res.data;
+              this.pageloading = false;
               for (let k in this.datas) {
                 if (
                   this.datas[k].type == "freeCouponCard" ||
@@ -2308,11 +2317,11 @@ export default {
           type: "shopIntro",
           list: [
             {
-              shopName: "未来新零售",
-              shopSite: "北京市法人台区1号院10号楼442",
-              bData: "周一至周日",
-              bHours: "9:30-18:30",
-              mobile: "13055555555"
+              shopName: "门店名字",
+              shopSite: "门店地址",
+              bData: "营业日期",
+              bHours: "营业时间",
+              mobile: "手机或固话"
             }
           ]
         };
@@ -2324,7 +2333,7 @@ export default {
           brandCover:
             "http://club.liantuobank.com/imgPath/club-open/1554270628106.jpg",
           brandInfo:
-            "北京联拓天际电子商务有限公司于2007-06-04在丰台分局登记成立。法定代表人陈霄毅，公司经营范围包括公共软件服务；网页设计；计算机系统服务；电脑动画设计等。",
+            "请输入公司简介",
           brandEstablishedTime: "",
           brandAddress: "北京",
           brandBusiness: "网页设计"
@@ -2446,7 +2455,7 @@ export default {
     },
     // 添加底部导航模块
     fnTabBar() {
-      if (this.until.datas.footer.list.length == 2) {
+      if (this.pageInfo.footer.list.length == 2) {
         this.$message({
           showClose: true,
           message: "底部导航最多添加两个！"
@@ -2455,7 +2464,7 @@ export default {
         let obj = {
           name: "会员首页"
         };
-        this.until.datas.footer.list.push(obj);
+        this.pageInfo.footer.list.push(obj);
       }
     },
     //添加功能列表子元素模块
@@ -2590,13 +2599,13 @@ export default {
           list.splice(ind, 1);
         }
       } else if (item == "tabBar") {
-        if (this.until.datas.footer.list.length == 1) {
+        if (this.pageInfo.footer.list.length == 1) {
           this.$message({
             showClose: true,
             message: "至少要保留1个哦！"
           });
         } else {
-          this.until.datas.footer.list.splice(ind, 1);
+          this.pageInfo.footer.list.splice(ind, 1);
         }
       } else {
         this.datas[this.currentKey].list.splice(ind, 1);
@@ -2643,17 +2652,20 @@ export default {
           }
         }
       }
-      until.datas.ids = ids;
-      // let formData = new FormData();
-      // formData.append("merchantCode", this.merchantCode);
-      // formData.append("config",JSON.stringify(until.datas));
-      let obj= {
-        merchantCode:this.merchantCode,
-        config: qs.stringify(until.datas)
-      }
-      
-      this.api.clubMarketAppUpdate({json:obj}).then(res => {
+      this.pageInfo.ids = ids;
+      let formData = new FormData();
+      formData.append("merchantCode", this.merchantCode);
+      formData.append("config",JSON.stringify(this.pageInfo));
+      this.api.clubMarketAppUpdate(formData).then(res => {
         console.log(res);
+        if(res.data.returnCode == 'S'){
+          this.$message({
+            message: '保存成功',
+            type: 'success'
+          });
+        }else if(res.data.returnCode == 'F'){
+          this.$message.error(res.data.returnMessage);
+        }
       });
     }
   }
